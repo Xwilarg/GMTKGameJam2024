@@ -1,11 +1,15 @@
 ﻿using Gmtk.Prop;
 using Gmtk.SO;
+using Gmtk.SO.Part;
 using UnityEngine;
 
 namespace Gmtk.Robot
 {
     public class ARobot : MonoBehaviour
     {
+        [SerializeField]
+        private Transform _wheelsAnchor, _handsAnchor, _cpuAnchor;
+
         private Rigidbody _rb;
         private Detector _detector;
 
@@ -13,6 +17,7 @@ namespace Gmtk.Robot
 
         public HandInfo Hands { set; get; }
         public WheelInfo Wheels { set; get; }
+        public CPUInfo CPU { set; get; }
 
         private Vector2 _lastDir = Vector2.up;
 
@@ -39,12 +44,29 @@ namespace Gmtk.Robot
                     ToggleInteract(false);
                 }
             });
-
-            SetDetectorPos();
         }
 
         protected virtual void ToggleInteract(bool value)
         { }
+
+        public void AddPart(APartInfo part)
+        {
+            if (part is CPUInfo cpu)
+            {
+                Instantiate(part.GameObject, _cpuAnchor.transform);
+                CPU = cpu;
+            }
+            else if (part is WheelInfo wheels)
+            {
+                Instantiate(part.GameObject, _wheelsAnchor.transform);
+                Wheels = wheels;
+            }
+            else if (part is HandInfo hands)
+            {
+                Instantiate(part.GameObject, _handsAnchor.transform);
+                Hands = hands;
+            }
+        }
 
         public void TryCarry(ConstructionPart part)
         {
@@ -56,11 +78,6 @@ namespace Gmtk.Robot
 
                 Carrying = part;
             }
-        }
-
-        private void SetDetectorPos()
-        {
-            _detector.transform.position = transform.position + new Vector3(_lastDir.x, 0f, _lastDir.y);
         }
 
         private int Clamp1Int(float value)
@@ -79,7 +96,7 @@ namespace Gmtk.Robot
 
             _rb.linearVelocity = new(dir.x * speed * Wheels.Speed, _rb.linearVelocity.y, dir.y * speed * Wheels.Speed);
 
-            SetDetectorPos();
+            transform.LookAt(transform.position + new Vector3(dir.x, 0f, dir.y), Vector3.up);
         }
     }
 }

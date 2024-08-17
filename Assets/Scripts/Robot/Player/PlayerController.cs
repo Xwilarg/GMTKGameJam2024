@@ -23,8 +23,8 @@ namespace Gmtk.Robot.Player
         {
             base.Awake();
 
-            Wheels = _defaultWheels;
-            Hands = _defaultHands;
+            AddPart(_defaultWheels);
+            AddPart(_defaultHands);
         }
 
         private void FixedUpdate()

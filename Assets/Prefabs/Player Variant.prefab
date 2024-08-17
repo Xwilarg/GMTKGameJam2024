@@ -188,6 +188,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2487184189740732848, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307805983807987130, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8150463590082019054, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -248,6 +256,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8150463590082019054, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
   m_PrefabInstance: {fileID: 8983821993024644240}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2245513565876508485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7171234953360880597, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+  m_PrefabInstance: {fileID: 8983821993024644240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5639272435203503172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3669953105713664212, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+  m_PrefabInstance: {fileID: 8983821993024644240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6078911878609675780 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2949946423161766548, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+  m_PrefabInstance: {fileID: 8983821993024644240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8967101440727774030 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 62339840710776798, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
@@ -265,6 +288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4c999bc165dca4ca752db4af50be8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wheelsAnchor: {fileID: 5639272435203503172}
+  _handsAnchor: {fileID: 6078911878609675780}
+  _cpuAnchor: {fileID: 2245513565876508485}
   _defaultWheels: {fileID: 11400000, guid: 84eaf26f344b8284a9be963fa4c2c30b, type: 2}
   _defaultHands: {fileID: 11400000, guid: ca50a1cc28cf0dd4ba66a83a01c74141, type: 2}
   _interactionText: {fileID: 5268462921443248446}

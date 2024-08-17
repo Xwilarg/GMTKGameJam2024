@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40f6559b455b8e144a52df965e6a55bf, type: 3}
   m_Name: SampleHands
   m_EditorClassIdentifier: 
-  GameObject: {fileID: 0}
+  GameObject: {fileID: 919132149155446097, guid: 3c480005a6adb5f43a81920babe719bb, type: 3}
   CanGrab: 1
