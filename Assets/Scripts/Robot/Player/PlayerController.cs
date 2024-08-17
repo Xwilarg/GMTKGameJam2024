@@ -1,21 +1,30 @@
 using Gmtk.Prop;
+using Gmtk.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Gmtk.Robot.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : ARobot
     {
-        private Rigidbody _rb;
+        [SerializeField]
+        private WheelInfo _defaultWheels;
+
+        [SerializeField]
+        private HandInfo _defaultHands;
+
         private Vector2 _mov;
 
         private IInteractable _interactionTarget;
 
         private const float Speed = 10f;
 
-        private void Awake()
+        protected override void Awake()
         {
-            _rb = GetComponent<Rigidbody>();
+            base.Awake();
+
+            _wheels = _defaultWheels;
+            _hands = _defaultHands;
 
             var detector = GetComponentInChildren<Detector>();
             detector.TriggerEnterEvt.AddListener((coll) =>
@@ -36,7 +45,7 @@ namespace Gmtk.Robot.Player
 
         private void FixedUpdate()
         {
-            _rb.linearVelocity = new(_mov.x * Speed, _rb.linearVelocity.y, _mov.y * Speed);
+            Move(_mov, Speed);
         }
 
         public void OnMovement(InputAction.CallbackContext value)

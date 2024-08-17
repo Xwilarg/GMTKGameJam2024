@@ -655,6 +655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed4c999bc165dca4ca752db4af50be8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultWheels: {fileID: 11400000, guid: 84eaf26f344b8284a9be963fa4c2c30b, type: 2}
+  _defaultHands: {fileID: 11400000, guid: ca50a1cc28cf0dd4ba66a83a01c74141, type: 2}
 --- !u!54 &1125875967
 Rigidbody:
   m_ObjectHideFlags: 0
