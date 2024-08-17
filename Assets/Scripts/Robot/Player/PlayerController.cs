@@ -15,8 +15,6 @@ namespace Gmtk.Robot.Player
 
         private Vector2 _mov;
 
-        private IInteractable _interactionTarget;
-
         private const float Speed = 10f;
 
         protected override void Awake()
@@ -25,22 +23,6 @@ namespace Gmtk.Robot.Player
 
             _wheels = _defaultWheels;
             _hands = _defaultHands;
-
-            var detector = GetComponentInChildren<Detector>();
-            detector.TriggerEnterEvt.AddListener((coll) =>
-            {
-                if (coll.TryGetComponent<IInteractable>(out var comp))
-                {
-                    _interactionTarget = comp;
-                }
-            });
-            detector.TriggerExitEvt.AddListener((coll) =>
-            {
-                if (coll == (object)_interactionTarget)
-                {
-                    _interactionTarget = null;
-                }
-            });
         }
 
         private void FixedUpdate()
