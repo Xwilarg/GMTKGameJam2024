@@ -15,7 +15,7 @@ namespace Gmtk.Robot
 
         private void OnTriggerExit(Collider other)
         {
-            TriggerEnterEvt.Invoke(other);
+            TriggerExitEvt.Invoke(other);
         }
     }
 }
