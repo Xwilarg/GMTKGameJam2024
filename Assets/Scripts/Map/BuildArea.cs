@@ -29,8 +29,8 @@ namespace Gmtk.Map
 
                 CheckConstructionStatus();
 
-                robot.Carrying = null;
                 Destroy(robot.Carrying.gameObject);
+                robot.Carrying = null;
             }
         }
 

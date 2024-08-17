@@ -39,9 +39,10 @@ namespace Gmtk.Robot.Player
 
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.performed && _interactionTarget != null)
+            if (value.phase == InputActionPhase.Started && _interactionTarget != null && _interactionTarget.CanInteract)
             {
                 _interactionTarget.Interact(this);
+                ToggleInteract(false);
             }
         }
 

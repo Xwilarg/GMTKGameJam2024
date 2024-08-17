@@ -11,7 +11,7 @@ namespace Gmtk.Prop
 
         public APartInfo TargetPart => _targetPart;
 
-        public bool CanInteract { set; get; }
+        public bool CanInteract { set; get; } = true;
 
         public int ID => gameObject.GetInstanceID();
 
