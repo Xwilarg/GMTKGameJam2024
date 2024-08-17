@@ -21,8 +21,8 @@ namespace Gmtk.Robot.Player
         {
             base.Awake();
 
-            _wheels = _defaultWheels;
-            _hands = _defaultHands;
+            Wheels = _defaultWheels;
+            Hands = _defaultHands;
         }
 
         private void FixedUpdate()
@@ -39,7 +39,7 @@ namespace Gmtk.Robot.Player
         {
             if (value.performed && _interactionTarget != null)
             {
-                _interactionTarget.Interact();
+                _interactionTarget.Interact(this);
             }
         }
     }

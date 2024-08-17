@@ -11,10 +11,12 @@ namespace Gmtk.Robot
 
         protected IInteractable _interactionTarget;
 
-        protected HandInfo _hands { set; private get; }
-        protected WheelInfo _wheels { set; private get; }
+        public HandInfo Hands { set; get; }
+        public WheelInfo Wheels { set; get; }
 
         private Vector2 _lastDir = Vector2.up;
+
+        public ConstructionPart Carrying { set; get; }
 
         protected virtual void Awake()
         {
@@ -39,6 +41,18 @@ namespace Gmtk.Robot
             SetDetectorPos();
         }
 
+        public void TryCarry(ConstructionPart part)
+        {
+            if (Hands.CanGrab && Carrying == null)
+            {
+                part.CanInteract = false;
+                part.transform.parent = _detector.transform;
+                part.transform.position = _detector.transform.position;
+
+                Carrying = part;
+            }
+        }
+
         private void SetDetectorPos()
         {
             _detector.transform.position = transform.position + new Vector3(_lastDir.x, 0f, _lastDir.y);
@@ -58,7 +72,7 @@ namespace Gmtk.Robot
                 _lastDir = new(Clamp1Int(dir.x), Clamp1Int(dir.y));
             }
 
-            _rb.linearVelocity = new(dir.x * speed * _wheels.Speed, _rb.linearVelocity.y, dir.y * speed * _wheels.Speed);
+            _rb.linearVelocity = new(dir.x * speed * Wheels.Speed, _rb.linearVelocity.y, dir.y * speed * Wheels.Speed);
 
             SetDetectorPos();
         }
