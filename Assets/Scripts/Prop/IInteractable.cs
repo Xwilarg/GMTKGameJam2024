@@ -6,5 +6,7 @@ namespace Gmtk.Prop
     {
         public void Interact(ARobot robot);
         public bool CanInteract { get; }
+
+        public int ID { get; }
     }
 }

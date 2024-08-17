@@ -13,6 +13,8 @@ namespace Gmtk.Prop
 
         public bool CanInteract { set; get; }
 
+        public int ID => gameObject.GetInstanceID();
+
         public void Interact(ARobot robot)
         {
             robot.TryCarry(this);

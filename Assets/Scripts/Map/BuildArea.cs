@@ -48,5 +48,12 @@ namespace Gmtk.Map
             var go = Instantiate(_aiPrefab, transform.position, Quaternion.identity);
             _constructing = go.GetComponent<AIController>();
         }
+
+#if UNITY_EDITOR
+        private void OnGUI()
+        {
+            GUI.Label(new Rect(5, 5, 100, 100), $"CPU: {_constructing.CPU?.name ?? "None"}\nWheels: {_constructing.Wheels?.name ?? "None"}\nHands: {_constructing.Hands?.name ?? "None"}");
+        }
+#endif
     }
 }

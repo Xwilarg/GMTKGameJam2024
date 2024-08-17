@@ -28,18 +28,23 @@ namespace Gmtk.Robot
                 if (coll.TryGetComponent<IInteractable>(out var comp))
                 {
                     _interactionTarget = comp;
+                    ToggleInteract(true);
                 }
             });
             _detector.TriggerExitEvt.AddListener((coll) =>
             {
-                if (coll == (object)_interactionTarget)
+                if (coll.gameObject.GetInstanceID() == _interactionTarget.ID)
                 {
                     _interactionTarget = null;
+                    ToggleInteract(false);
                 }
             });
 
             SetDetectorPos();
         }
+
+        protected virtual void ToggleInteract(bool value)
+        { }
 
         public void TryCarry(ConstructionPart part)
         {

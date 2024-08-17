@@ -1,4 +1,3 @@
-using Gmtk.Prop;
 using Gmtk.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +11,9 @@ namespace Gmtk.Robot.Player
 
         [SerializeField]
         private HandInfo _defaultHands;
+
+        [SerializeField]
+        private GameObject _interactionText;
 
         private Vector2 _mov;
 
@@ -41,6 +43,11 @@ namespace Gmtk.Robot.Player
             {
                 _interactionTarget.Interact(this);
             }
+        }
+
+        protected override void ToggleInteract(bool value)
+        {
+            _interactionText.SetActive(value);
         }
     }
 }
