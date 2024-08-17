@@ -24,16 +24,23 @@ Fear not, I was Best Teaching Assistant five years in a row before this. You're 
 // What's in the tutorial?
 -> DONE
 
+= scan_jobs
+Hmm, slow day. I wonder what's going on in town... # speaker guyd
+-> DONE
+
 == builder_bot ==
+= start_build
+Frank N. Stein at your service. Ready to build, boss! # speaker builder
 {
   - build_success: -> success
   - else: -> try_again
 }
+
 = success
 Great job, bot is coming online now!
 -> DONE 
 
 = try_again
-Uh-oh, did you check the schematics?
+Uh-oh, are these the right schematics?
 -> DONE
 
