@@ -10,6 +10,9 @@ namespace Gmtk.Robot
         [SerializeField]
         private Transform _wheelsAnchor, _handsAnchor, _cpuAnchor;
 
+        [SerializeField]
+        private Transform _rotTarget;
+
         private Rigidbody _rb;
         private Detector _detector;
 
@@ -96,7 +99,7 @@ namespace Gmtk.Robot
 
             _rb.linearVelocity = new(dir.x * speed * Wheels.Speed, _rb.linearVelocity.y, dir.y * speed * Wheels.Speed);
 
-            transform.LookAt(transform.position + new Vector3(dir.x, 0f, dir.y), Vector3.up);
+            _rotTarget.LookAt(transform.position + new Vector3(dir.x, 0f, dir.y), Vector3.up);
         }
     }
 }
