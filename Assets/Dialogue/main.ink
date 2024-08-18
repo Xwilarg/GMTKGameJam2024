@@ -16,7 +16,7 @@ VAR bot_number = 0
 ~ bot_number = 1
 Congratulations on your new shop! As mayor, I'm always eager to support small businesses in this town! # speaker mayor
 Speaking of support, I need your help. # speaker mayor
-City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your guys to take care of the situation? # speaker mayor
+City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your cats to take care of the situation? # speaker mayor
 -> guyd_bot.tutorial
 
 = host_event
@@ -52,6 +52,9 @@ VAR kitty_success = true
 VAR fire_success = true
 VAR battle_success = true
 VAR repair_success = true
+VAR found_job = 1
+LIST bot_tasks = cooking, cowboy, hunting, firefighting, battling, repair
+VAR task = repair
 
 == guyd_bot ==
 = tutorial
@@ -61,7 +64,21 @@ Fear not, I was Best Teaching Assistant five years in a row. You're in good hand
 -> DONE
 
 = scan_jobs
-Hmm, slow day. I wonder what's going on in town... # speaker guyd
+Hmm, wonder what's going on in town? # speaker guyd
+~ found_job = RANDOM(0, 1)
+{
+  - found_job == 1: -> new_task
+  - else: -> no_task
+}
+
+= new_task
+~ task = LIST_RANDOM(bot_tasks)
+~ bot_number = RANDOM(1, 20)
+Oh, someone needs a {task} job done! Let's get on it, {bot_number} bots coming right up! # speaker guyd
+-> DONE
+
+= no_task
+Quiet day, I guess. Slow day for business too... # speaker guyd
 -> DONE
 
 == builder_bot ==
