@@ -9,7 +9,11 @@ namespace Gmtk.Prop
         [SerializeField]
         private APartInfo _targetPart;
 
-        public APartInfo TargetPart => _targetPart;
+        public APartInfo TargetPart
+        {
+            set => _targetPart = value;
+            get => _targetPart;
+        }
 
         public bool CanInteract { set; get; } = true;
 

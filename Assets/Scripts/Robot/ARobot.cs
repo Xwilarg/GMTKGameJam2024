@@ -71,7 +71,7 @@ namespace Gmtk.Robot
             }
         }
 
-        public void TryCarry(ConstructionPart part)
+        public bool TryCarry(ConstructionPart part)
         {
             if (Hands.CanGrab && Carrying == null)
             {
@@ -80,7 +80,9 @@ namespace Gmtk.Robot
                 part.transform.position = _detector.transform.position;
 
                 Carrying = part;
+                return true;
             }
+            return false;
         }
 
         private int Clamp1Int(float value)
