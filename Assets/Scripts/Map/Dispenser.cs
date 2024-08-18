@@ -26,6 +26,9 @@ namespace Gmtk.Map
 
         private ConstructionPart _currentObject;
 
+        //Sound//
+        private FMOD.Studio.EventInstance collectengine;
+
         public void SetPart(APartInfo part)
         {
             _part = part;
@@ -44,6 +47,10 @@ namespace Gmtk.Map
             mr.materials = mats;
 
             AIManager.Instance.Register(_target, this);
+
+            //Sound//
+            collectengine = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/sfx_picking_engine");
+
         }
 
         private void Spawn()
@@ -59,6 +66,11 @@ namespace Gmtk.Map
             {
                 Spawn();
             }
+
+            //Sound//   
+            FMODUnity.RuntimeManager.AttachInstanceToGameObject(collectengine, GetComponent<Transform>(), GetComponent<Rigidbody>());
+            collectengine.start();
+
         }
     }
 }

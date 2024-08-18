@@ -12,9 +12,15 @@ namespace Gmtk.Map
 
         private AIController _constructing;
 
+        //Sound//
+        private FMOD.Studio.EventInstance constructsound;
+
         private void Start()
         {
             Spawn();
+
+            //Sound//
+            constructsound = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/sfx_robot_fix_engine");
         }
 
         private void OnTriggerEnter(Collider other)
@@ -31,6 +37,10 @@ namespace Gmtk.Map
 
                 Destroy(robot.Carrying.gameObject);
                 robot.Carrying = null;
+
+                //Sound//
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(constructsound, GetComponent<Transform>(), GetComponent<Rigidbody>());
+                constructsound.start();
             }
         }
 
