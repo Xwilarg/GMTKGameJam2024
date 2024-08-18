@@ -75,7 +75,6 @@ namespace Gmtk.Robot
         {
             if (Hands.CanGrab && Carrying == null)
             {
-                part.CanInteract = false;
                 part.transform.parent = _detector.transform;
                 part.transform.position = _detector.transform.position;
 

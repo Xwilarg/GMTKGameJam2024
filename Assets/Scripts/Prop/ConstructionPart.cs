@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gmtk.Prop
 {
-    public class ConstructionPart : MonoBehaviour, IInteractable
+    public class ConstructionPart : MonoBehaviour
     {
         [SerializeField]
         private APartInfo _targetPart;
@@ -13,15 +13,6 @@ namespace Gmtk.Prop
         {
             set => _targetPart = value;
             get => _targetPart;
-        }
-
-        public bool CanInteract { set; get; } = true;
-
-        public int ID => gameObject.GetInstanceID();
-
-        public void Interact(ARobot robot)
-        {
-            robot.TryCarry(this);
         }
     }
 }
