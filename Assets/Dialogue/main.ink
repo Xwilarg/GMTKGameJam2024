@@ -10,15 +10,12 @@ VAR bot_number = 0
 
 -> mayor.game_intro
 == mayor ==
-{ 
-  - not guyd_bot.tutorial: -> game_intro
-}
 = game_intro
 ~ bot_number = 1
 Congratulations on your new shop! As mayor, I'm always eager to support small businesses in this town! # speaker mayor
 Speaking of support, I need your help. # speaker mayor
 City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your cats to take care of the situation? # speaker mayor
--> guyd_bot.tutorial
+-> DONE
 
 = host_event
 ~ bot_number = RANDOM(1, 20)
