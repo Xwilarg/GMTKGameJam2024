@@ -29,6 +29,12 @@ Anyway, we're hosting a delegation from our sister city this week and our regula
 The forest fire is out of control and heading towards town. My people need all the help they can get. Give me {bot_number} of your best firefighters! # speaker fire_chief
 -> DONE
 
+= zoo_escape
+~ bot_number = RANDOM(1, 20)
+You haven't seen a tapir around, have you?! They're black and white, with a snout like an anteater. # speaker fire_chief
+A fire broke out in the zoo, and half the animals escaped! I need help, {bot_number} of your best! # speaker fire_chief
+-> DONE
+
 == mafia ==
 = turf_war
 ~ bot_number = RANDOM(1, 20)
@@ -36,10 +42,19 @@ New business eh, bro? You should meet my boss Don Fusilli. You'll need his help 
 Don Fusilli takes care of his own. Question is, will you step up for the Don? The {~Ziti|Rigatoni|Gemelli|Farfalle|Cavatappi} are trying to steal our territory and Don Fusilli needs {bot_number} fighters. # speaker mafia
 -> DONE
 
+= wedding
+~ bot_number = RANDOM(1, 20)
+Bro, it's Don Fusilli's daughter Margherita's wedding next week. You should come by, you know, pay your respects and all. # speaker mafia
+The Don also wants to send business your way. Send {bot_number} of your guys to help with the wedding.
+-> DONE
+
 == rancher ==
 = lost
 ~ bot_number = RANDOM(1, 20)
 S'up amigo? Some of our cattle escaped and I sure could use some help tracking 'em down. You got {bot_number} cowboys 'round these parts? # speaker rancher
+-> DONE
+
+= pen
 -> DONE
 
 // Bots
@@ -50,9 +65,9 @@ VAR task = repair
 
 == guyd_bot ==
 = tutorial
-New day, new beginnings, I say! Let me show you around! # speaker guyd 
-Fear not, I was Best Teaching Assistant five years in a row. You're in good hands! # speaker guyd
-// What's in the tutorial?
+~ bot_number = RANDOM(1, 20)
+Nicely done! That's why you're the boss, boss! # speaker guyd
+A smart boss also knows how to delegate, wink, wink. Go ahead and make {bot_number} builders - they'll help you build even more bots! # speaker guyd
 -> DONE
 
 = scan_jobs
@@ -185,4 +200,7 @@ I'll grab my {~hammer|wrench|screwdriver}. This'll take no time at all!
 
 = broken
 I might have a screw or two loose, but who doesn't, right am I?
+-> DONE
+
+== orders ==
 -> DONE
