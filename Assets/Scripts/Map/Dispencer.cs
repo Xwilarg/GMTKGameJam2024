@@ -37,6 +37,8 @@ namespace Gmtk.Map
             var mats = mr.materials;
             mats[1] = ResourcesManager.Instance.GetMat(_target);
             mr.materials = mats;
+
+            AIManager.Instance.Register(_target, transform);
         }
 
         private void Spawn()

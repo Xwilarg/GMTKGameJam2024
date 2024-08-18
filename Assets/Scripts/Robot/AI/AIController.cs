@@ -1,4 +1,5 @@
-﻿using Gmtk.SO;
+﻿using Gmtk.Manager;
+using Gmtk.SO;
 using UnityEngine.AI;
 
 namespace Gmtk.Robot.AI
@@ -26,7 +27,20 @@ namespace Gmtk.Robot.AI
 
         private void SetTarget()
         {
-
+            if (Carrying)
+            {
+                _agent.SetDestination(AIManager.Instance.BuildArea.position);
+            }
+            else
+            {
+                _agent.SetDestination(AIManager.Instance.GetClosest(AiCPU.AI switch
+                {
+                    AIBehavior.GrabRedStation => TargetColor.Red,
+                    AIBehavior.GrabGreenStation => TargetColor.Green,
+                    AIBehavior.GrabBlueStation => TargetColor.Blue,
+                    _ => throw new System.NotImplementedException()
+                }, transform.position).position);
+            }
         }
 
         protected override void Awake()

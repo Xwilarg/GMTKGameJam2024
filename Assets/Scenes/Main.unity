@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 33102353}
   - component: {fileID: 33102354}
   - component: {fileID: 33102356}
+  - component: {fileID: 33102357}
   - component: {fileID: 33102355}
   m_Layer: 0
   m_Name: GameManager
@@ -225,6 +226,19 @@ MonoBehaviour:
   _matRed: {fileID: 2100000, guid: 8d9acc812bacc4c4eb16937535207abf, type: 2}
   _matGreen: {fileID: 2100000, guid: b12c563361c6ab94ebc0dfb4f0bfdff2, type: 2}
   _matBlue: {fileID: 2100000, guid: 25d7315eab9f41c48b97c82776356f0e, type: 2}
+--- !u!114 &33102357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33102352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21122c5d0d2fcf54996d887308c2b690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buildArea: {fileID: 802630057}
 --- !u!1 &48701148
 GameObject:
   m_ObjectHideFlags: 0
