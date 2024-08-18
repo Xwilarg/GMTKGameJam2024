@@ -22,7 +22,7 @@ City Hall is a stinking mess today - turns out a nest of rats has been living in
 = host_event
 ~ bot_number = RANDOM(1, 20)
 Hello, your shop seems to be doing well! My office pushed for those tax incentives in the last election - we're big on helping businesses! # speaker mayor
-Anyway, we're hosting a delegation from our sister city this week and our regular caterers are overbooked. Do you have a team of {bot_number} that can prepare Greek food?
+Anyway, we're hosting a delegation from our sister city this week and our regular caterers are overbooked. Do you have a team of {bot_number} that can prepare {~Greek food|brown bag lunches|pizzas|BBQ ribs|sandwiches}?
 -> DONE
 
 == fire_chief ==
@@ -35,19 +35,19 @@ The forest fire is out of control and heading towards town. My people need all t
 = turf_war
 ~ bot_number = RANDOM(1, 20)
 New business eh, bro? You should meet my boss Don Fusilli. You'll need his help one day. # speaker mafia
-Don Fusilli takes care of his own. Question is, will you step up for the Don? The Ziti are trying to steal our territory and Don Fusilli needs {bot_number} fighters. # speaker mafia
+Don Fusilli takes care of his own. Question is, will you step up for the Don? The {~Ziti|Rigatoni|Gemelli|Farfalle|Cavatappi} are trying to steal our territory and Don Fusilli needs {bot_number} fighters. # speaker mafia
 -> DONE
 
 == rancher ==
 = lost
 ~ bot_number = RANDOM(1, 20)
-S'up amigo? Some of our cattle escaped and I sure could use some help tracking 'em down. You got {bot_number} cowboys around these parts? # speaker rancher
+S'up amigo? Some of our cattle escaped and I sure could use some help tracking 'em down. You got {bot_number} cowboys 'round these parts? # speaker rancher
 -> DONE
 
 // Bots
 VAR build_success = true
 VAR found_job = 1
-LIST bot_tasks = cooking, cowboy, hunting, firefighting, battling, repair
+LIST bot_tasks = cooking, cowboy, kitty, firefighting, battling, repair
 VAR task = repair
 
 == guyd_bot ==
@@ -67,7 +67,23 @@ Hmm, wonder what's going on in town? # speaker guyd
 
 = new_task
 ~ task = LIST_RANDOM(bot_tasks)
+{
+  - task == "cowboy": -> cowboy_task
+  - task == "kitty": -> kitty_task
+  - else: -> report_task
+}
+
+= cowboy_task
 ~ bot_number = RANDOM(1, 20)
+Hey, let's send {bot_number} cowboys to the ranch. Looks like their cattle got loose again.
+-> DONE
+
+= kitty_task
+~ bot_number = RANDOM(1, 20)
+Snakes alive! We need {bot_number} cats at that house before anyone gets attacked.
+-> DONE
+
+= report_task
 Oh, someone needs a {task} job done! Let's get on it, {bot_number} bots coming right up! # speaker guyd
 -> DONE
 
