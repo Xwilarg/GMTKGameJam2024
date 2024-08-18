@@ -29,6 +29,8 @@ namespace Gmtk.Robot.AI
 
         protected override void Awake()
         {
+            base.Awake();
+
             _agent = GetComponent<NavMeshAgent>();
         }
 
@@ -47,7 +49,7 @@ namespace Gmtk.Robot.AI
 #endif
             }
 #if UNITY_EDITOR
-            _debugText.text += $"Interaction: {(_interactionTarget?.CanInteract)?.ToString() ?? "null"}";
+            _debugText.text += $"\nInteraction: {(_interactionTarget?.CanInteract)?.ToString() ?? "null"}";
 #endif
         }
 
