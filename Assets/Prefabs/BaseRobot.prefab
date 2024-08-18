@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8150463590082019054}
   - component: {fileID: 4955166877080750268}
-  - component: {fileID: 4880242999218091079}
   - component: {fileID: 769355382561626909}
   m_Layer: 6
-  m_Name: AI
+  m_Name: BaseRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,22 +61,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &4880242999218091079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 62339840710776798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be58532b7dae6c46aa74f8041a120f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _wheelsAnchor: {fileID: 3669953105713664212}
-  _handsAnchor: {fileID: 2949946423161766548}
-  _cpuAnchor: {fileID: 7171234953360880597}
-  _rotTarget: {fileID: 2691690770925373097}
 --- !u!65 &769355382561626909
 BoxCollider:
   m_ObjectHideFlags: 0

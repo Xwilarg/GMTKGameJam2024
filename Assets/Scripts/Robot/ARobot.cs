@@ -41,7 +41,7 @@ namespace Gmtk.Robot
             });
             _detector.TriggerExitEvt.AddListener((coll) =>
             {
-                if (coll.gameObject.GetInstanceID() == _interactionTarget.ID)
+                if (_interactionTarget != null && coll.gameObject.GetInstanceID() == _interactionTarget.ID)
                 {
                     _interactionTarget = null;
                     ToggleInteract(false);
