@@ -19,7 +19,7 @@ VAR battle_success = true
 = game_intro
 Congratulations on your new shop! As mayor, I'm always eager to support small businesses in this town! # speaker mayor
 Speaking of support, I need your help. # speaker mayor
-City Hall is literally a stinking mess today - burst sewage pipe!  Could you send a bot to take care of the situation? # speaker mayor
+City Hall is a stinking mess today - turns out a nest of rats have been living in our vents!  Could you send a bot to take care of the situation? # speaker mayor
 -> guyd_bot.tutorial
 
 == guyd_bot ==
@@ -58,7 +58,7 @@ I'll cook my way to your heart!
 -> DONE
 
 = cannot_cook
-I don't know how to boil water... help!
+Help! How do you boil water?
 -> DONE
 
 == cowboy_bot ==
@@ -68,9 +68,11 @@ I don't know how to boil water... help!
 }
 
 = rodeo
+This ain't my first rodeo. Giddy up!
 -> DONE
 
 = no_rodeo
+Why am I riding a horse? 
 -> DONE
 
 == kitty_bot ==
@@ -80,9 +82,11 @@ I don't know how to boil water... help!
 }
 
 = is_cat
+Meow!
 -> DONE
 
 = not_cat
+I don't hunt. Who do you think I am, a cat?
 -> DONE
 
 == fire_bot ==
@@ -92,9 +96,11 @@ I don't know how to boil water... help!
 }
 
 = hot
+There's no smoke without... FIRE! I'll take care of this!
 -> DONE
 
 = not_hot
+I'm smoking... and I don't mean hot.
 -> DONE
 
 == battle_bot ==
@@ -104,9 +110,11 @@ I don't know how to boil water... help!
 }
 
 = fight
+Let me at 'em!
 -> DONE
 
 = no_fight
+Can't we all just get along?
 -> DONE
 
 
