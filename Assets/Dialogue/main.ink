@@ -19,8 +19,18 @@ VAR battle_success = true
 = game_intro
 Congratulations on your new shop! As mayor, I'm always eager to support small businesses in this town! # speaker mayor
 Speaking of support, I need your help. # speaker mayor
-City Hall is a stinking mess today - turns out a nest of rats have been living in our vents!  Could you send a bot to take care of the situation? # speaker mayor
+City Hall is a stinking mess today - turns out a nest of rats have been living in our vents!  Could you send someone to take care of the situation? # speaker mayor
 -> guyd_bot.tutorial
+
+= host_event
+Hello, your shop seems to be doing well! My office pushed for those tax incentives in the last election - we're big on helping businesses! # speaker mayor
+Anyway, we're hosting a delegation from our sister city this week and our regular caterers are overbooked. Do you have a team that can prepare Greek food?
+-> DONE
+
+== fire_chief ==
+= forest_fire
+There's a forest fire and it's heading towards town. My people need all the help they can get. Give me your best firefighters! # speaker fire_chief
+-> DONE
 
 == guyd_bot ==
 = tutorial
@@ -116,7 +126,3 @@ Let me at 'em!
 = no_fight
 Can't we all just get along?
 -> DONE
-
-
-
-
