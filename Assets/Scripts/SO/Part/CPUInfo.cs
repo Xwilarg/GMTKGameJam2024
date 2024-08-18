@@ -8,5 +8,7 @@ namespace Gmtk.SO
     public class CPUInfo : APartInfo
     {
         public AIBehavior AI;
+
+        public GameObject OptionalClothes;
     }
 }

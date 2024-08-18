@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: CPU Advanced AI
   Description: Only for the best kind of robots
-  GameObject: {fileID: 919132149155446097, guid: e83c37436034fb245ab676a36e199e33, type: 3}
+  GameObject: {fileID: 919132149155446097, guid: 6656120365fe4724e8d8d6f3dfef86e4, type: 3}
   AI: 3
+  OptionalClothes: {fileID: 919132149155446097, guid: 1d952b1b03c60ae488cd4b788387c013, type: 3}

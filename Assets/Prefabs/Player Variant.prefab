@@ -717,6 +717,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 581032469372123503}
   m_SourcePrefab: {fileID: 100100000, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+--- !u!4 &492156438365220487 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8824960894497540631, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+  m_PrefabInstance: {fileID: 8983821993024644240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &986483974992075390 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8150463590082019054, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
@@ -762,6 +767,7 @@ MonoBehaviour:
   _wheelsAnchor: {fileID: 5639272435203503172}
   _handsAnchor: {fileID: 6078911878609675780}
   _cpuAnchor: {fileID: 2245513565876508485}
+  _clothesAnchor: {fileID: 492156438365220487}
   _rotTarget: {fileID: 6482435782474146361}
   _defaultWheels: {fileID: 11400000, guid: 84eaf26f344b8284a9be963fa4c2c30b, type: 2}
   _defaultHands: {fileID: 11400000, guid: ca50a1cc28cf0dd4ba66a83a01c74141, type: 2}

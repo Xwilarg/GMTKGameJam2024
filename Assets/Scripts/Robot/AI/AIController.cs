@@ -1,5 +1,4 @@
 ﻿using Gmtk.Manager;
-using Gmtk.Map;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;

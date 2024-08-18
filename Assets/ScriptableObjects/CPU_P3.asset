@@ -16,3 +16,4 @@ MonoBehaviour:
   Description: Only for the best kind of robots
   GameObject: {fileID: 919132149155446097, guid: 325f6880dc3846346890c302956309c6, type: 3}
   AI: 3
+  OptionalClothes: {fileID: 919132149155446097, guid: f8a89020920f17d4082650219e3c9bb3, type: 3}

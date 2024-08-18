@@ -266,6 +266,7 @@ MonoBehaviour:
   _wheelsAnchor: {fileID: 4337993039213734397}
   _handsAnchor: {fileID: 2751065971063651261}
   _cpuAnchor: {fileID: 7879249279743986428}
+  _clothesAnchor: {fileID: 8405230270712214334}
   _rotTarget: {fileID: 3136512181334474624}
   _debugText: {fileID: 5008440905724596062}
 --- !u!195 &2185192055327680500
@@ -308,6 +309,11 @@ Transform:
 --- !u!4 &7879249279743986428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7171234953360880597, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+  m_PrefabInstance: {fileID: 1071275381921954089}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8405230270712214334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8824960894497540631, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
   m_PrefabInstance: {fileID: 1071275381921954089}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &9205828484696623047 stripped

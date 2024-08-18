@@ -8,7 +8,7 @@ namespace Gmtk.Robot
     public class ARobot : MonoBehaviour
     {
         [SerializeField]
-        private Transform _wheelsAnchor, _handsAnchor, _cpuAnchor;
+        private Transform _wheelsAnchor, _handsAnchor, _cpuAnchor, _clothesAnchor;
 
         [SerializeField]
         private Transform _rotTarget;
@@ -55,6 +55,10 @@ namespace Gmtk.Robot
             if (part is CPUInfo cpu)
             {
                 Instantiate(part.GameObject, _cpuAnchor.transform);
+                if (cpu.OptionalClothes != null)
+                {
+                    Instantiate(cpu.OptionalClothes, _clothesAnchor.transform);
+                }
                 CPU = cpu;
             }
             else if (part is WheelInfo wheels)
