@@ -46,12 +46,6 @@ S'up amigo? Some of our cattle escaped and I sure could use some help tracking '
 
 // Bots
 VAR build_success = true
-VAR cook_success = true
-VAR cowboy_success = true
-VAR kitty_success = true
-VAR fire_success = true
-VAR battle_success = true
-VAR repair_success = true
 VAR found_job = 1
 LIST bot_tasks = cooking, cowboy, hunting, firefighting, battling, repair
 VAR task = repair
@@ -97,7 +91,7 @@ Uh-oh, are these the right schematics?
 
 == cook_bot ==
 {
-  - cook_success: -> can_cook
+  - build_success: -> can_cook
   - else: -> cannot_cook
 }
 
@@ -111,7 +105,7 @@ Help! How do you boil water?
 
 == cowboy_bot ==
 {
-  - cowboy_success: -> rodeo
+  - build_success: -> rodeo
   - else: -> no_rodeo
 }
 
@@ -125,7 +119,7 @@ Why am I riding a horse?
 
 == kitty_bot ==
 {
-  - kitty_success: -> is_cat
+  - build_success: -> is_cat
   - else: -> not_cat
 }
 
@@ -139,7 +133,7 @@ I don't hunt. Who do you think I am, a cat?
 
 == fire_bot ==
 {
-  - fire_success: -> hot
+  - build_success: -> hot
   - else: -> not_hot
 }
 
@@ -153,7 +147,7 @@ I'm smoking... and I don't mean hot.
 
 == battle_bot ==
 {
-  - battle_success: -> fight
+  - build_success: -> fight
   - else: -> no_fight
 }
 
@@ -167,7 +161,7 @@ Can't we all just get along?
 
 == repair_bot ==
 {
-  - repair_success: -> fix
+  - build_success: -> fix
   - else: -> broken
 }
 
