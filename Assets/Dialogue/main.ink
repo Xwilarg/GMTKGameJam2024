@@ -75,16 +75,16 @@ Hmm, wonder what's going on in town? # speaker guyd
 
 = cowboy_task
 ~ bot_number = RANDOM(1, 20)
-Hey, let's send {bot_number} cowboys to the ranch. Looks like their cattle got loose again.
+Hey, let's send {bot_number} {bot_number>1:cowboys|cowboy} to the ranch. Looks like their cattle got loose again.
 -> DONE
 
 = kitty_task
 ~ bot_number = RANDOM(1, 20)
-Snakes alive! We need {bot_number} cats at that house before anyone gets attacked.
+Snakes alive! We need {bot_number} {bot_number>1:cats|cat} at that house before anyone gets attacked.
 -> DONE
 
 = report_task
-Oh, someone needs a {task} job done! Let's get on it, {bot_number} bots coming right up! # speaker guyd
+Oh, someone needs a {task} job done! Let's get on it, {bot_number} {bot_number>1:bots|bot} coming right up! # speaker guyd
 -> DONE
 
 = no_task
