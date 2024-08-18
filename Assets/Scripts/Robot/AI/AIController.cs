@@ -46,6 +46,9 @@ namespace Gmtk.Robot.AI
                 _debugText.text = "Changing target";
 #endif
             }
+#if UNITY_EDITOR
+            _debugText.text += $"Interaction: {(_interactionTarget?.CanInteract)?.ToString() ?? "null"}";
+#endif
         }
 
         private void SetTarget()
