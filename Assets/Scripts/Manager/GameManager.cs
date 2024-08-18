@@ -34,6 +34,7 @@ namespace Gmtk.Manager
             _state = GameState.Playing;
             _timer = TimerRef;
             _blastDoor.SetTrigger("Close");
+            VNManager.Instance.NextMission();
         }
 
         public void StartIntro()

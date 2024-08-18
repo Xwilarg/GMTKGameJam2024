@@ -23,6 +23,19 @@ namespace Gmtk.VN
 
         public TutorialProgress Progress { set; get; }
 
+        public void NextMission()
+        {
+            if (Progress != TutorialProgress.Game)
+            {
+                Progress++;
+            }
+            if (Progress == TutorialProgress.MultiBots)
+            {
+                _story.ChoosePathString("mayor.host_event");
+            }
+            IsShowingIntro = true;
+        }
+
         private void Awake()
         {
             Instance = this;
