@@ -25,7 +25,7 @@ namespace Gmtk.Map
 
                 if (part is HandInfo handInfo && _constructing.Hands == null) _constructing.AddPart(handInfo);
                 else if (part is WheelInfo wheelInfo && _constructing.Wheels == null) _constructing.AddPart(wheelInfo);
-                else if (part is CPUInfo cpuInfo && _constructing.CPU == null) _constructing.AddPart(cpuInfo);
+                else if (part is CPUInfo cpuInfo && _constructing.AiCPU == null) _constructing.AddPart(cpuInfo);
 
                 CheckConstructionStatus();
 
@@ -36,7 +36,7 @@ namespace Gmtk.Map
 
         private void CheckConstructionStatus()
         {
-            if (_constructing.Hands != null && _constructing.Wheels != null && _constructing.CPU != null)
+            if (_constructing.Hands != null && _constructing.Wheels != null && _constructing.AiCPU != null)
             {
                 _constructing.IsBeingConstructed = false;
                 Spawn();
@@ -52,7 +52,7 @@ namespace Gmtk.Map
 #if UNITY_EDITOR
         private void OnGUI()
         {
-            GUI.Label(new Rect(5, 5, 100, 100), $"CPU: {_constructing.CPU?.name ?? "None"}\nWheels: {_constructing.Wheels?.name ?? "None"}\nHands: {_constructing.Hands?.name ?? "None"}");
+            GUI.Label(new Rect(5, 5, 100, 100), $"CPU: {_constructing.AiCPU?.name ?? "None"}\nWheels: {_constructing.Wheels?.name ?? "None"}\nHands: {_constructing.Hands?.name ?? "None"}");
         }
 #endif
     }

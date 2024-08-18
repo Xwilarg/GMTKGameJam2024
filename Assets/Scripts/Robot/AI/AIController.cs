@@ -6,6 +6,6 @@ namespace Gmtk.Robot.AI
     {
         public bool IsBeingConstructed { private get; set; } = true;
 
-        public CPUInfo CPU { set; get; }
+        public CPUInfo AiCPU { set; get; }
     }
 }

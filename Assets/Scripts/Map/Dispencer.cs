@@ -1,4 +1,5 @@
-﻿using Gmtk.Prop;
+﻿using Gmtk.Manager;
+using Gmtk.Prop;
 using Gmtk.Robot;
 using Gmtk.SO.Part;
 using UnityEngine;
@@ -16,6 +17,9 @@ namespace Gmtk.Map
         [SerializeField]
         private Transform _spawnPoint;
 
+        [SerializeField]
+        private TargetColor _target;
+
         public bool CanInteract => true;
 
         public int ID => gameObject.GetInstanceID();
@@ -25,6 +29,14 @@ namespace Gmtk.Map
         private void Awake()
         {
             Spawn();
+        }
+
+        private void Start()
+        {
+            var mr = GetComponent<MeshRenderer>();
+            var mats = mr.materials;
+            mats[1] = ResourcesManager.Instance.GetMat(_target);
+            mr.materials = mats;
         }
 
         private void Spawn()
