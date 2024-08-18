@@ -4,6 +4,7 @@
     {
         GrabRedStation,
         GrabGreenStation,
-        GrabBlueStation
+        GrabBlueStation,
+        Player
     }
 }
