@@ -7,10 +7,19 @@ namespace Gmtk.Manager
 {
     public class PlayerManager : MonoBehaviour
     {
+        public static PlayerManager Instance { private set; get; }
+
         [SerializeField]
         private CPUInfo[] _cpus;
 
         private int _index;
+
+        public bool HasJoin => _index > 0;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         public void OnJoin(PlayerInput player)
         {
