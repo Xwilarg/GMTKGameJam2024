@@ -1,4 +1,5 @@
 ﻿using Gmtk.Manager;
+using Gmtk.VN;
 using TMPro;
 using UnityEngine;
 
@@ -35,9 +36,14 @@ namespace Gmtk.Manager
             _blastDoor.SetTrigger("Close");
         }
 
+        public void StartIntro()
+        {
+            _timerText.text = "Listen to the mayor!";
+        }
+
         private void Update()
         {
-            if (_state == GameState.RoundEnd || !PlayerManager.Instance.HasJoin) return;
+            if (_state == GameState.RoundEnd || VNManager.Instance.IsShowingIntro) return;
 
             _timer -= Time.deltaTime;
             if (_timer <= 0f)

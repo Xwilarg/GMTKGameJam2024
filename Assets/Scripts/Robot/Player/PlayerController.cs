@@ -3,6 +3,7 @@ using Gmtk.Manager;
 using Gmtk.Map;
 using Gmtk.Menu;
 using Gmtk.SO;
+using Gmtk.VN;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -70,8 +71,6 @@ namespace Gmtk.Robot.Player
 
         public void OnMovement(InputAction.CallbackContext value)
         {
-           
-
             if (_dispenserItemSelector.gameObject.activeInHierarchy)
             {
                 if (value.phase == InputActionPhase.Started)
@@ -79,23 +78,17 @@ namespace Gmtk.Robot.Player
                     var d = value.ReadValue<Vector2>();
                     if (d.x < 0f) _dispenserItemSelector.OnPrev();
                     else if (d.x > 0f) _dispenserItemSelector.OnNext();
-
-                    
-                    
                 }
             }
             else
             {
                 _mov = value.ReadValue<Vector2>();
-
-               
-                
             }
         }
 
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started)
+            if (value.phase == InputActionPhase.Started && !VNManager.Instance.IsShowingIntro)
             {
                 if (_dispenserItemSelector.gameObject.activeInHierarchy)
                 {

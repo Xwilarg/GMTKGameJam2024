@@ -29,6 +29,7 @@ namespace Gmtk.Manager
             if (_index == 0)
             {
                 VNManager.Instance.StartTutorial();
+                GameManager.Instance.StartIntro();
             }
 
             _index++;

@@ -19,6 +19,8 @@ namespace Gmtk.VN
 
         private bool _isWaitingForNext;
 
+        public bool IsShowingIntro { private set; get; } = true;
+
         private void Awake()
         {
             Instance = this;
@@ -48,9 +50,7 @@ namespace Gmtk.VN
 
         private void Update()
         {
-            if (_display.IsDisplayDone && _story != null &&
-                _story.canContinue && // There is text left to write
-                !_story.currentChoices.Any())
+            if (IsShowingIntro && _display.IsDisplayDone && _story != null && !_isWaitingForNext)
             {
                 _isWaitingForNext = true;
                 StartCoroutine(WaitAndDisplay());
@@ -60,7 +60,14 @@ namespace Gmtk.VN
         private IEnumerator WaitAndDisplay()
         {
             yield return new WaitForSeconds(1f);
-            DisplayStory(_story.Continue());
+            if (_story.canContinue)
+            {
+                DisplayStory(_story.Continue());
+            }
+            else
+            {
+                IsShowingIntro = false;
+            }
             _isWaitingForNext = false;
         }
     }
