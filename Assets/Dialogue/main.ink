@@ -75,12 +75,12 @@ Hmm, wonder what's going on in town? # speaker guyd
 
 = cowboy_task
 ~ bot_number = RANDOM(1, 20)
-Hey, let's send {bot_number} {bot_number>1:cowboys|cowboy} to the ranch. Looks like their cattle got loose again.
+Hey, let's send {bot_number} {bot_number>1:cowboys|cowboy} to the ranch. Looks like their cattle got loose again. # speaker guyd
 -> DONE
 
 = kitty_task
 ~ bot_number = RANDOM(1, 20)
-Snakes alive! We need {bot_number} {bot_number>1:cats|cat} at that house before anyone gets attacked.
+Snakes alive! We need {bot_number} {bot_number>1:cats|cat} at that house before anyone gets attacked. # speaker guyd
 -> DONE
 
 = report_task
@@ -112,7 +112,7 @@ Uh-oh, are these the right schematics?
 }
 
 = can_cook
-Is {~baklava|lasagna|ice cream|chicken cordon bleu|sushi} the way to your heart? I can make that!
+I can make you {~baklava|lasagna|ice cream|chicken cordon bleu|sushi}!
 -> DONE
 
 = cannot_cook
@@ -158,7 +158,7 @@ There's no smoke without... FIRE! I'll take care of this!
 -> DONE
 
 = not_hot
-I'm smoking... and I don't mean hot.
+Why am I smoking?! And I don't mean hot.
 -> DONE
 
 == battle_bot ==
