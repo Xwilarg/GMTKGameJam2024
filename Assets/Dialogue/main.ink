@@ -8,6 +8,7 @@ Writing needs: Dialogue
 // Customers
 VAR bot_number = 0
 
+-> mayor.game_intro
 == mayor ==
 { 
   - not guyd_bot.tutorial: -> game_intro
