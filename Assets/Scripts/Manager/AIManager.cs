@@ -1,4 +1,5 @@
 ﻿using Gmtk.Map;
+using Gmtk.Robot.AI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,14 @@ namespace Gmtk.Manager
     {
         public static AIManager Instance { private set; get; }
 
+
+        [SerializeField]
+        private Transform _gameEndPos;
+        public Vector3 GameEndPos => _gameEndPos.position;
+
         private Dictionary<TargetColor, List<Dispenser>> _colorTargets = new();
+
+        private List<AIController> _ais = new();
 
         private void Awake()
         {
@@ -19,6 +27,20 @@ namespace Gmtk.Manager
             {
                 _colorTargets.Add(color, new());
             }
+        }
+
+        public void Register(AIController ai)
+        {
+            _ais.Add(ai);
+        }
+
+        public void EndRound()
+        {
+            foreach (var ai in _ais)
+            {
+                ai.SetTarget();
+            }
+            _ais.Clear();
         }
 
         public void Register(TargetColor targetColor, Dispenser t)

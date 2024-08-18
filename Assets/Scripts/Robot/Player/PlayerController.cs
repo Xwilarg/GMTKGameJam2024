@@ -1,3 +1,4 @@
+using Gmtk.Manager;
 using Gmtk.Map;
 using Gmtk.Menu;
 using Gmtk.SO;
@@ -34,7 +35,8 @@ namespace Gmtk.Robot.Player
 
         private void FixedUpdate()
         {
-            Move(_mov, Speed);
+            if (GameManager.Instance.DidRoundEnd) Move(Vector2.zero, 0f);
+            else Move(_mov, Speed);
         }
 
         public void ShowItemSelector(Dispenser dispenser)

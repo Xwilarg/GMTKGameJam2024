@@ -34,6 +34,7 @@ namespace Gmtk.Robot.AI
             base.Awake();
 
             _agent = GetComponent<NavMeshAgent>();
+            AIManager.Instance.Register(this);
         }
 
         private void Update()
@@ -55,8 +56,16 @@ namespace Gmtk.Robot.AI
 #endif
         }
 
-        private void SetTarget()
+        public void SetTarget()
         {
+            if (_isBeingConstructed) return;
+
+            if (GameManager.Instance.DidRoundEnd)
+            {
+                _agent.SetDestination(AIManager.Instance.GameEndPos);
+                return;
+            }
+
             if (_interactionTarget != null && _interactionTarget.CanInteract)
             {
                 _interactionTarget.Interact(this);

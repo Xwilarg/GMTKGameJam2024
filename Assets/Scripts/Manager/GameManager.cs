@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Manager
+namespace Gmtk.Manager
 {
     public class GameManager : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Manager
         private TMP_Text _timerText;
 
         private float _timer;
-        private const float TimerRef = 10f;
+        private const float TimerRef = 20f;
 
         private GameState _state = GameState.Playing;
 
@@ -39,8 +39,9 @@ namespace Assets.Scripts.Manager
                 switch (_state)
                 {
                     case GameState.Playing:
-                        _blastDoor.SetTrigger("Open");
                         _state = GameState.RoundEnd;
+                        _blastDoor.SetTrigger("Open");
+                        AIManager.Instance.EndRound();
                         break;
 
                     default: throw new System.NotImplementedException();

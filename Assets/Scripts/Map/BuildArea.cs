@@ -12,7 +12,7 @@ namespace Gmtk.Map
 
         private AIController _constructing;
 
-        private void Awake()
+        private void Start()
         {
             Spawn();
         }
