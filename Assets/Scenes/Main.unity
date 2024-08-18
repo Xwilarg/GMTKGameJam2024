@@ -226,6 +226,10 @@ MonoBehaviour:
   _matRed: {fileID: 2100000, guid: 8d9acc812bacc4c4eb16937535207abf, type: 2}
   _matGreen: {fileID: 2100000, guid: b12c563361c6ab94ebc0dfb4f0bfdff2, type: 2}
   _matBlue: {fileID: 2100000, guid: 25d7315eab9f41c48b97c82776356f0e, type: 2}
+  _allAvailableParts:
+  - {fileID: 11400000, guid: 9c43ca3e2db820f4980a4dee530a6f20, type: 2}
+  - {fileID: 11400000, guid: ca50a1cc28cf0dd4ba66a83a01c74141, type: 2}
+  - {fileID: 11400000, guid: 84eaf26f344b8284a9be963fa4c2c30b, type: 2}
 --- !u!114 &33102357
 MonoBehaviour:
   m_ObjectHideFlags: 0

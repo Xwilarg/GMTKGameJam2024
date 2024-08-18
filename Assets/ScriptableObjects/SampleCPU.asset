@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7758e6a4f8009a44a415b8af1e10cd5, type: 3}
   m_Name: SampleCPU
   m_EditorClassIdentifier: 
+  Name: Sample CPU
   GameObject: {fileID: 919132149155446097, guid: e20aaee632a8bc14b9d62af8610ed3d4, type: 3}
   AI: 0

@@ -6,13 +6,10 @@ using UnityEngine;
 
 namespace Gmtk.Map
 {
-    public class Dispencer : MonoBehaviour, IInteractable
+    public class Dispenser : MonoBehaviour, IInteractable
     {
         [SerializeField]
         private ConstructionPart _prefab;
-
-        [SerializeField]
-        private APartInfo _part;
 
         [SerializeField]
         private Transform _spawnPoint;
@@ -21,14 +18,21 @@ namespace Gmtk.Map
         [SerializeField]
         private TargetColor _target;
 
+        private APartInfo _part;
+
         public bool CanInteract => true;
 
         public int ID => gameObject.GetInstanceID();
 
         private ConstructionPart _currentObject;
 
-        private void Awake()
+        public void SetPart(APartInfo part)
         {
+            _part = part;
+            if (_currentObject != null)
+            {
+                Destroy(_currentObject.gameObject);
+            }
             Spawn();
         }
 

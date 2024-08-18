@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gmtk.SO.Part;
+using UnityEngine;
 
 namespace Gmtk.Manager
 {
@@ -8,6 +9,11 @@ namespace Gmtk.Manager
 
         [SerializeField]
         private Material _matRed, _matGreen, _matBlue;
+
+        [SerializeField]
+        private APartInfo[] _allAvailableParts;
+
+        public APartInfo[] AllAvailableParts => _allAvailableParts;
 
         private void Awake()
         {

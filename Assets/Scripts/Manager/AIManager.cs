@@ -14,7 +14,7 @@ namespace Gmtk.Manager
         private Transform _buildArea;
         public Transform BuildArea => _buildArea;
 
-        private Dictionary<TargetColor, List<Dispencer>> _colorTargets = new();
+        private Dictionary<TargetColor, List<Dispenser>> _colorTargets = new();
 
         private void Awake()
         {
@@ -25,12 +25,12 @@ namespace Gmtk.Manager
             }
         }
 
-        public void Register(TargetColor targetColor, Dispencer t)
+        public void Register(TargetColor targetColor, Dispenser t)
         {
             _colorTargets[targetColor].Add(t);
         }
 
-        public Dispencer GetClosest(TargetColor color, Vector3 me)
+        public Dispenser GetClosest(TargetColor color, Vector3 me)
             => _colorTargets[color].OrderBy(x => Vector3.Distance(x.transform.position, me)).First();
     }
 }

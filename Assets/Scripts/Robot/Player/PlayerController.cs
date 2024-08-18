@@ -1,3 +1,5 @@
+using Gmtk.Map;
+using Gmtk.Menu;
 using Gmtk.SO;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +16,9 @@ namespace Gmtk.Robot.Player
 
         [SerializeField]
         private GameObject _interactionText;
+
+        [SerializeField]
+        private DispenserItemSelector _dispenserItemSelector;
 
         private Vector2 _mov;
 
@@ -32,17 +37,44 @@ namespace Gmtk.Robot.Player
             Move(_mov, Speed);
         }
 
+        public void ShowItemSelector(Dispenser dispenser)
+        {
+            _dispenserItemSelector.gameObject.SetActive(true);
+            _dispenserItemSelector.Init(dispenser);
+            Move(Vector2.zero, 0f);
+        }
+
         public void OnMovement(InputAction.CallbackContext value)
         {
-            _mov = value.ReadValue<Vector2>();
+            if (_dispenserItemSelector.gameObject.activeInHierarchy)
+            {
+                if (value.phase == InputActionPhase.Started)
+                {
+                    var d = value.ReadValue<Vector2>();
+                    if (d.x < 0f) _dispenserItemSelector.OnPrev();
+                    else if (d.x > 0f) _dispenserItemSelector.OnNext();
+                }
+            }
+            else
+            {
+                _mov = value.ReadValue<Vector2>();
+            }
         }
 
         public void OnAction(InputAction.CallbackContext value)
         {
-            if (value.phase == InputActionPhase.Started && _interactionTarget != null && _interactionTarget.CanInteract)
+            if (value.phase == InputActionPhase.Started)
             {
-                _interactionTarget.Interact(this);
-                ToggleInteract(false);
+                if (_dispenserItemSelector.gameObject.activeInHierarchy)
+                {
+                    _dispenserItemSelector.OnConfirm();
+                    _dispenserItemSelector.gameObject.SetActive(false);
+                }
+                else if (_interactionTarget != null && _interactionTarget.CanInteract)
+                {
+                    _interactionTarget.Interact(this);
+                    ToggleInteract(false);
+                }
             }
         }
 
