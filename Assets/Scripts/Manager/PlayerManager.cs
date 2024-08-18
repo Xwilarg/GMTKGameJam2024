@@ -1,5 +1,6 @@
 ﻿using Gmtk.Robot;
 using Gmtk.SO;
+using Gmtk.VN;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,6 +25,11 @@ namespace Gmtk.Manager
         public void OnJoin(PlayerInput player)
         {
             player.GetComponent<ARobot>().AddPart(_cpus[_index % _cpus.Length]);
+
+            if (_index == 0)
+            {
+                VNManager.Instance.StartTutorial();
+            }
 
             _index++;
         }

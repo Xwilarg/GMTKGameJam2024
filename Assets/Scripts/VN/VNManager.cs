@@ -1,6 +1,6 @@
 ﻿using Ink.Runtime;
+using System.Collections;
 using System.Linq;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 namespace Gmtk.VN
@@ -17,9 +17,15 @@ namespace Gmtk.VN
 
         private Story _story;
 
+        private bool _isWaitingForNext;
+
         private void Awake()
         {
             Instance = this;
+        }
+
+        public void StartTutorial()
+        {
             _story = new(_storyText.text);
             DisplayStory(_story.Continue());
         }
@@ -42,12 +48,20 @@ namespace Gmtk.VN
 
         private void Update()
         {
-            if (_display.IsDisplayDone &&
+            if (_display.IsDisplayDone && _story != null &&
                 _story.canContinue && // There is text left to write
                 !_story.currentChoices.Any())
             {
-                DisplayStory(_story.Continue());
+                _isWaitingForNext = true;
+                StartCoroutine(WaitAndDisplay());
             }
+        }
+
+        private IEnumerator WaitAndDisplay()
+        {
+            yield return new WaitForSeconds(1f);
+            DisplayStory(_story.Continue());
+            _isWaitingForNext = false;
         }
     }
 }
