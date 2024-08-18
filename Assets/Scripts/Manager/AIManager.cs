@@ -45,9 +45,11 @@ namespace Gmtk.Manager
             }
         }
 
+        public int BuiltAiCount => _ais.Count(x => !x.IsBeingConstructed);
+
         public void EndRound()
         {
-            RobotCount = _ais.Count(x => !x.IsBeingConstructed);
+            RobotCount = BuiltAiCount;
             foreach (var ai in _ais)
             {
                 ai.SetTarget();

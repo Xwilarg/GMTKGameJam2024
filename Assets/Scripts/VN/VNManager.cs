@@ -21,6 +21,8 @@ namespace Gmtk.VN
 
         public bool IsShowingIntro { private set; get; } = true;
 
+        public TutorialProgress Progress { set; get; }
+
         private void Awake()
         {
             Instance = this;
@@ -57,6 +59,8 @@ namespace Gmtk.VN
             }
         }
 
+        public int Objective => (int)_story.variablesState["bot_number"];
+
         private IEnumerator WaitAndDisplay()
         {
             yield return new WaitForSeconds(1f);
@@ -70,5 +74,12 @@ namespace Gmtk.VN
             }
             _isWaitingForNext = false;
         }
+    }
+
+    public enum TutorialProgress
+    {
+        SingleBot,
+        MultiBots,
+        Game
     }
 }

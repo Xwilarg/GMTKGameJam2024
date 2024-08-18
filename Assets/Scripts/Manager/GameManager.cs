@@ -41,28 +41,46 @@ namespace Gmtk.Manager
             _timerText.text = "Listen to the mayor!";
         }
 
+        private void EndRound()
+        {
+            _state = GameState.RoundEnd;
+            _blastDoor.SetTrigger("Open");
+            AIManager.Instance.EndRound();
+        }
+
         private void Update()
         {
             if (_state == GameState.RoundEnd || VNManager.Instance.IsShowingIntro) return;
 
-            _timer -= Time.deltaTime;
-            if (_timer <= 0f)
+            if (VNManager.Instance.Progress == TutorialProgress.Game)
             {
-                _timerText.text = "Time Out!";
-                switch (_state)
+                _timer -= Time.deltaTime;
+                if (_timer <= 0f)
                 {
-                    case GameState.Playing:
-                        _state = GameState.RoundEnd;
-                        _blastDoor.SetTrigger("Open");
-                        AIManager.Instance.EndRound();
-                        break;
+                    _timerText.text = "Time Out!";
+                    switch (_state)
+                    {
+                        case GameState.Playing:
+                            EndRound();
+                            break;
 
-                    default: throw new System.NotImplementedException();
+                        default: throw new System.NotImplementedException();
+                    }
+                }
+                else
+                {
+                    _timerText.text = $"{_timer:00}:{Mathf.FloorToInt(_timer % 1 * 10f):0}";
+                }
+            }
+            else if (VNManager.Instance.Progress == TutorialProgress.SingleBot)
+            {
+                if (VNManager.Instance.Objective == AIManager.Instance.BuiltAiCount)
+                {
+                    EndRound();
                 }
             }
             else
             {
-                _timerText.text = $"{_timer:00}:{Mathf.FloorToInt(_timer % 1 * 10f):0}";
             }
         }
     }
