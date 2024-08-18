@@ -22,8 +22,6 @@ namespace Gmtk.Robot
         public WheelInfo Wheels { set; get; }
         public CPUInfo CPU { set; get; }
 
-        private Vector2 _lastDir = Vector2.up;
-
         public ConstructionPart Carrying { set; get; }
 
         protected virtual void Awake()
@@ -93,11 +91,6 @@ namespace Gmtk.Robot
 
         public void Move(Vector2 dir, float speed)
         {
-            if (dir.magnitude > 0f)
-            {
-                _lastDir = new(Clamp1Int(dir.x), Clamp1Int(dir.y));
-            }
-
             _rb.linearVelocity = new(dir.x * speed * Wheels.Speed, _rb.linearVelocity.y, dir.y * speed * Wheels.Speed);
 
             _rotTarget.LookAt(transform.position + new Vector3(dir.x, 0f, dir.y), Vector3.up);

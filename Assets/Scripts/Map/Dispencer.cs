@@ -16,6 +16,7 @@ namespace Gmtk.Map
 
         [SerializeField]
         private Transform _spawnPoint;
+        public Transform SpawnPoint => _spawnPoint;
 
         [SerializeField]
         private TargetColor _target;
@@ -38,7 +39,7 @@ namespace Gmtk.Map
             mats[1] = ResourcesManager.Instance.GetMat(_target);
             mr.materials = mats;
 
-            AIManager.Instance.Register(_target, transform);
+            AIManager.Instance.Register(_target, this);
         }
 
         private void Spawn()

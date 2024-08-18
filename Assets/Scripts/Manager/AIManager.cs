@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gmtk.Map;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Gmtk.Manager
         private Transform _buildArea;
         public Transform BuildArea => _buildArea;
 
-        private Dictionary<TargetColor, List<Transform>> _colorTargets = new();
+        private Dictionary<TargetColor, List<Dispencer>> _colorTargets = new();
 
         private void Awake()
         {
@@ -24,12 +25,12 @@ namespace Gmtk.Manager
             }
         }
 
-        public void Register(TargetColor targetColor, Transform t)
+        public void Register(TargetColor targetColor, Dispencer t)
         {
             _colorTargets[targetColor].Add(t);
         }
 
-        public Transform GetClosest(TargetColor color, Vector3 me)
-            => _colorTargets[color].OrderBy(x => Vector3.Distance(x.position, me)).First();
+        public Dispencer GetClosest(TargetColor color, Vector3 me)
+            => _colorTargets[color].OrderBy(x => Vector3.Distance(x.transform.position, me)).First();
     }
 }
