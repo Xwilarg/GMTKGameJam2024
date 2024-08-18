@@ -13,7 +13,7 @@ namespace Gmtk.Robot.AI
         private bool _isBeingConstructed = true;
         public bool IsBeingConstructed
         {
-            private get => _isBeingConstructed;
+            get => _isBeingConstructed;
             set
             {
                 _isBeingConstructed = value;

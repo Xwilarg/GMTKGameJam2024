@@ -20,6 +20,8 @@ namespace Gmtk.Manager
 
         private List<AIController> _ais = new();
 
+        private int RobotCount;
+
         private void Awake()
         {
             Instance = this;
@@ -34,8 +36,18 @@ namespace Gmtk.Manager
             _ais.Add(ai);
         }
 
+        public void ReduceRobotCount()
+        {
+            RobotCount--;
+            if (RobotCount == 0)
+            {
+                GameManager.Instance.StartNextRound();
+            }
+        }
+
         public void EndRound()
         {
+            RobotCount = _ais.Count(x => !x.IsBeingConstructed);
             foreach (var ai in _ais)
             {
                 ai.SetTarget();

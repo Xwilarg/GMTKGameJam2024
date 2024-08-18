@@ -55,7 +55,7 @@ namespace Gmtk.Map
 
         public void Interact(ARobot robot)
         {
-            if (robot.TryCarry(_currentObject))
+            if (_currentObject != null && robot.TryCarry(_currentObject))
             {
                 Spawn();
             }

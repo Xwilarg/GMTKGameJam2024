@@ -28,6 +28,13 @@ namespace Gmtk.Manager
             _timerText.text = "Press any key to start";
         }
 
+        public void StartNextRound()
+        {
+            _state = GameState.Playing;
+            _timer = TimerRef;
+            _blastDoor.SetTrigger("Close");
+        }
+
         private void Update()
         {
             if (_state == GameState.RoundEnd || !PlayerManager.Instance.HasJoin) return;

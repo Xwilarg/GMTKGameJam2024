@@ -38,8 +38,6 @@ namespace Gmtk.Robot.Player
             AddPart(_defaultHands);
 
             robotmovement = FMODUnity.RuntimeManager.CreateInstance("event:/SFX/sfx_robot_moving");
-
-            
         }
 
         private void FixedUpdate()

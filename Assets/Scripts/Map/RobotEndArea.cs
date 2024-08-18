@@ -10,6 +10,7 @@ namespace Gmtk.Map
         {
             if (GameManager.Instance.DidRoundEnd && other.TryGetComponent<AIController>(out var robot))
             {
+                AIManager.Instance.ReduceRobotCount();
                 Destroy(robot.gameObject);
             }
         }
