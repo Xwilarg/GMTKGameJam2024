@@ -47,6 +47,7 @@ namespace Gmtk.Map
         {
             var go = Instantiate(_aiPrefab, transform.position, Quaternion.identity);
             _constructing = go.GetComponent<AIController>();
+            _constructing.HomeArea = transform;
         }
 
 #if UNITY_EDITOR

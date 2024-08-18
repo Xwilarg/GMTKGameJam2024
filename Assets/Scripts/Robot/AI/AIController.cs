@@ -1,4 +1,5 @@
 ﻿using Gmtk.Manager;
+using Gmtk.Map;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -26,6 +27,8 @@ namespace Gmtk.Robot.AI
         }
 
         private NavMeshAgent _agent;
+
+        public Transform HomeArea { set; private get; }
 
         protected override void Awake()
         {
@@ -62,7 +65,7 @@ namespace Gmtk.Robot.AI
 
             if (Carrying)
             {
-                _agent.SetDestination(AIManager.Instance.BuildArea.position);
+                _agent.SetDestination(HomeArea.position);
             }
             else
             {

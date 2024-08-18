@@ -10,10 +10,6 @@ namespace Gmtk.Manager
     {
         public static AIManager Instance { private set; get; }
 
-        [SerializeField]
-        private Transform _buildArea;
-        public Transform BuildArea => _buildArea;
-
         private Dictionary<TargetColor, List<Dispenser>> _colorTargets = new();
 
         private void Awake()
