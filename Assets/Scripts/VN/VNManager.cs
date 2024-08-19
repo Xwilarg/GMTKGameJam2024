@@ -27,7 +27,9 @@ namespace Gmtk.VN
 
         public TutorialProgress Progress { set; get; }
 
-        private Dictionary<string, string[]> scenarios = new()
+        private string _sceIndex1,_sceIndex2;
+
+        private Dictionary<string, string[]> _scenarios = new()
         {
             { "mayor", new[] { "host_event" } },
             { "fire_chief", new[] { "forest_fire", "zoo_escape" } },
@@ -58,7 +60,9 @@ namespace Gmtk.VN
             }
             else
             {
-                _story.ChoosePathString("customer.kitty");
+                _sceIndex1 = _scenarios.Keys.ElementAt(Random.Range(0, _scenarios.Count));
+                _sceIndex2 = _scenarios[_sceIndex1][Random.Range(0, _scenarios[_sceIndex1].Count())];
+                _story.ChoosePathString($"{_sceIndex1}.{_sceIndex2}");
             }
             IsShowingIntro = true;
         }
