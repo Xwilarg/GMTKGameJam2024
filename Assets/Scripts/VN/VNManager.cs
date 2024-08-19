@@ -33,6 +33,10 @@ namespace Gmtk.VN
             {
                 _story.ChoosePathString("guyd_bot.tutorial");
             }
+            else
+            {
+                _story.ChoosePathString("customer.commission");
+            }
             IsShowingIntro = true;
         }
 
