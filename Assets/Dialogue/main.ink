@@ -31,7 +31,7 @@ The forest fire is out of control and heading towards town. My people need all t
 
 = zoo_escape
 ~ bot_number = RANDOM(1, 20)
-You haven't seen a tapir around, have you?! They're black and white, with a snout like an anteater. # speaker fire_chief
+You haven't seen a tapir around, have you?! It's black and white, with a snout like an anteater. # speaker fire_chief
 A fire broke out in the zoo, and half the animals escaped! I need help, {bot_number} of your best! # speaker fire_chief
 -> DONE
 
@@ -54,7 +54,9 @@ The Don also wants to send business your way. Send {bot_number} of your guys to 
 S'up amigo? Some of our cattle escaped and I sure could use some help tracking 'em down. You got {bot_number} cowboys 'round these parts? # speaker rancher
 -> DONE
 
-= pen
+= fence
+Hola, amigo! A few other ranch hands offered to help fix our fences. We probably need more help though, 'specially since we promised to feed them. # speaker rancher
+Could use {bot_number} of yours on the day of! # speaker rancher
 -> DONE
 
 // Bots
