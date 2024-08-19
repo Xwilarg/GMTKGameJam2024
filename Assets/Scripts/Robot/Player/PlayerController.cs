@@ -35,6 +35,8 @@ namespace Gmtk.Robot.Player
         {
             base.Awake();
 
+            _dispenserItemSelector.gameObject.SetActive(false);
+
             AddPart(_defaultWheels);
             AddPart(_defaultHands);
 
