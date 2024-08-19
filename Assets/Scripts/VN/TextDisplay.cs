@@ -37,6 +37,7 @@ namespace Gmtk.VN
 
         private string _displayLeft = string.Empty;
 
+        public bool IsOngoingDone => _toDisplay != null && _index == _toDisplay.Length;
         public bool IsDisplayDone => _toDisplay == null || (_index == _toDisplay.Length && _displayLeft == string.Empty);
 
         /// <summary>

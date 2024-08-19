@@ -73,14 +73,14 @@ namespace Gmtk.Robot
             {
                 if (_wheelsGo != null) Destroy(_wheelsGo);
 
-                Instantiate(part.GameObject, _wheelsAnchor.transform);
+                _wheelsGo = Instantiate(part.GameObject, _wheelsAnchor.transform);
                 Wheels = wheels;
             }
             else if (part is HandInfo hands)
             {
                 if (_handsGo != null) Destroy(_handsGo);
 
-                Instantiate(part.GameObject, _handsAnchor.transform);
+                _handsGo = Instantiate(part.GameObject, _handsAnchor.transform);
                 Hands = hands;
             }
 

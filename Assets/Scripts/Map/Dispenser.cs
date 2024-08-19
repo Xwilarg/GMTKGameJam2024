@@ -55,7 +55,7 @@ namespace Gmtk.Map
 
         private void Spawn()
         {
-            var go = Instantiate(_prefab, _spawnPoint.position, Quaternion.identity);
+            var go = Instantiate(_prefab, _spawnPoint.position, _prefab.transform.rotation);
             _currentObject = go.GetComponent<ConstructionPart>();
             _currentObject.TargetPart = _part;
         }

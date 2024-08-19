@@ -69,14 +69,29 @@ namespace Gmtk.VN
 
         private void Update()
         {
-            if (IsShowingIntro && _display.IsDisplayDone && _story != null && !_isWaitingForNext)
+            if (IsShowingIntro && _story != null && !_isWaitingForNext)
             {
-                _isWaitingForNext = true;
-                StartCoroutine(WaitAndDisplay());
+                if (_display.IsDisplayDone)
+                {
+                    _isWaitingForNext = true;
+                    StartCoroutine(WaitAndDisplay());
+                }
+                else if (_display.IsOngoingDone)
+                {
+                    StartCoroutine(WaitAndForceDisplay());
+                    _isWaitingForNext = true;
+                }
             }
         }
 
         public int Objective => (int)_story.variablesState["bot_number"];
+
+        private IEnumerator WaitAndForceDisplay()
+        {
+            yield return new WaitForSeconds(1f);
+            _display.ForceDisplay();
+            _isWaitingForNext = false;
+        }
 
         private IEnumerator WaitAndDisplay()
         {
