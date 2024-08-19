@@ -66,6 +66,12 @@ namespace Gmtk.Robot.AI
                 return;
             }
 
+            if (CPU.AI == AIBehavior.Cat)
+            {
+                _agent.SetDestination(new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f)));
+                return;
+            }
+
             if (_interactionTarget != null && _interactionTarget.CanInteract)
             {
                 _interactionTarget.Interact(this);
