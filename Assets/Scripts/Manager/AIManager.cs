@@ -56,7 +56,7 @@ namespace Gmtk.Manager
             {
                 ai.SetTarget();
             }
-            _ais.Clear();
+            _ais.RemoveAll(x => !x.IsBeingConstructed);
         }
 
         public void Register(TargetColor targetColor, Dispenser t)
