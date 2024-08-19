@@ -75,13 +75,17 @@ namespace Gmtk.Manager
             }
             else if (VNManager.Instance.Progress == TutorialProgress.SingleBot)
             {
-                if (VNManager.Instance.Objective == AIManager.Instance.BuiltAiCount)
+                if (VNManager.Instance.Objective >= AIManager.Instance.BuiltCatCount)
                 {
                     EndRound();
                 }
             }
             else
             {
+                if (VNManager.Instance.Objective >= AIManager.Instance.BuiltBuilderCount)
+                {
+                    EndRound();
+                }
             }
         }
     }

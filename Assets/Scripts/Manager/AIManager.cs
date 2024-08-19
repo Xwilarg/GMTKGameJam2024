@@ -46,6 +46,8 @@ namespace Gmtk.Manager
         }
 
         public int BuiltAiCount => _ais.Count(x => !x.IsBeingConstructed);
+        public int BuiltCatCount => _ais.Count(x => !x.IsBeingConstructed && x.CPU.AI == AIBehavior.Cat);
+        public int BuiltBuilderCount => _ais.Count(x => !x.IsBeingConstructed && (x.CPU.AI == AIBehavior.GrabRedStation || x.CPU.AI == AIBehavior.GrabGreenStation || x.CPU.AI == AIBehavior.GrabBlueStation));
 
         public void EndRound()
         {
