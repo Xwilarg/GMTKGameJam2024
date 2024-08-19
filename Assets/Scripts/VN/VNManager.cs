@@ -113,6 +113,7 @@ namespace Gmtk.VN
         }
 
         public int Objective => (int)_story.variablesState["bot_number"];
+        public string[] PossibleBots => (string[])_story.variablesState["bot_type"];
 
         private IEnumerator WaitAndForceDisplay()
         {

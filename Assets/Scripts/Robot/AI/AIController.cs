@@ -56,6 +56,13 @@ namespace Gmtk.Robot.AI
 #if UNITY_EDITOR
             _debugText.text += $"\nInteraction: {(_interactionTarget?.CanInteract)?.ToString() ?? "null"}";
 #endif
+
+            if (transform.position.y < -100f)
+            {
+                AIManager.Instance.Unregister(this);
+                Debug.LogError("AI fall under the floor");
+                Destroy(gameObject);
+            }
         }
 
         protected override void OnPartUpdate(APartInfo part)

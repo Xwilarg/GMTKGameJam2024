@@ -40,6 +40,10 @@ namespace Gmtk.Manager
             }
         }
 
+        public void Unregister(AIController ai)
+        {
+            _ais.Remove(ai);
+        }
         public void Register(AIController ai)
         {
             _ais.Add(ai);
@@ -60,6 +64,7 @@ namespace Gmtk.Manager
 
         private bool CheckObjective()
         {
+            Debug.Log($"Objective requires {VNManager.Instance.Objective} of {string.Join(", ", VNManager.Instance.PossibleBots)}");
             if (true) // Cat
             {
                 return BuiltCatCount >= VNManager.Instance.Objective;
