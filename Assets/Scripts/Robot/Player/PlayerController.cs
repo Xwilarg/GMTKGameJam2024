@@ -94,6 +94,9 @@ namespace Gmtk.Robot.Player
                 {
                     _dispenserItemSelector.OnConfirm();
                     _dispenserItemSelector.gameObject.SetActive(false);
+
+                    //Sound//
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_option_selected_panel");
                 }
                 else if (_interactionTarget != null && _interactionTarget.CanInteract)
                 {

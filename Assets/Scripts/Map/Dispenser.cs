@@ -58,6 +58,7 @@ namespace Gmtk.Map
             var go = Instantiate(_prefab, _spawnPoint.position, _prefab.transform.rotation);
             _currentObject = go.GetComponent<ConstructionPart>();
             _currentObject.TargetPart = _part;
+
         }
 
         public void Interact(ARobot robot)
@@ -65,11 +66,13 @@ namespace Gmtk.Map
             if (_currentObject != null && robot.TryCarry(_currentObject))
             {
                 Spawn();
+
+                //Sound//   
+                FMODUnity.RuntimeManager.AttachInstanceToGameObject(collectengine, GetComponent<Transform>(), GetComponent<Rigidbody>());
+                collectengine.start();
             }
 
-            //Sound//   
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(collectengine, GetComponent<Transform>(), GetComponent<Rigidbody>());
-            collectengine.start();
+            
 
         }
     }

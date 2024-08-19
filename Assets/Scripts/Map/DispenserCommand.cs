@@ -19,6 +19,8 @@ namespace Gmtk.Map
             if (robot is PlayerController pc)
             {
                 pc.ShowItemSelector(_target);
+
+                FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_changing_options_panel");
             }
         }
     }
