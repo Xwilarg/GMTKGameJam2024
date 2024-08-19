@@ -29,9 +29,9 @@ namespace Gmtk.Map
             {
                 var part = robot.Carrying.TargetPart;
 
-                if (part is HandInfo handInfo && _constructing.Hands == null) _constructing.AddPart(handInfo);
-                else if (part is WheelInfo wheelInfo && _constructing.Wheels == null) _constructing.AddPart(wheelInfo);
-                else if (part is CPUInfo cpuInfo && _constructing.CPU == null) _constructing.AddPart(cpuInfo);
+                if (part is HandInfo handInfo) _constructing.AddPart(handInfo);
+                else if (part is WheelInfo wheelInfo) _constructing.AddPart(wheelInfo);
+                else if (part is CPUInfo cpuInfo) _constructing.AddPart(cpuInfo);
 
                 CheckConstructionStatus();
 

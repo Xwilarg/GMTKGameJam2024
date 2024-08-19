@@ -22,6 +22,8 @@ namespace Gmtk.Robot
         public WheelInfo Wheels { set; get; }
         public CPUInfo CPU { set; get; }
 
+        private GameObject _wheelsGo, _handsGo, _cpuGo, _clothesGo;
+
         public ConstructionPart Carrying { set; get; }
 
         protected virtual void Awake()
@@ -54,20 +56,27 @@ namespace Gmtk.Robot
         {
             if (part is CPUInfo cpu)
             {
-                Instantiate(part.GameObject, _cpuAnchor.transform);
+                if (_cpuGo != null) Destroy(_cpuGo);
+                if (_clothesGo != null) Destroy(_clothesGo);
+
+                _cpuGo = Instantiate(part.GameObject, _cpuAnchor.transform);
                 if (cpu.OptionalClothes != null)
                 {
-                    Instantiate(cpu.OptionalClothes, _clothesAnchor.transform);
+                    _clothesGo = Instantiate(cpu.OptionalClothes, _clothesAnchor.transform);
                 }
                 CPU = cpu;
             }
             else if (part is WheelInfo wheels)
             {
+                if (_wheelsGo != null) Destroy(_wheelsGo);
+
                 Instantiate(part.GameObject, _wheelsAnchor.transform);
                 Wheels = wheels;
             }
             else if (part is HandInfo hands)
             {
+                if (_handsGo != null) Destroy(_handsGo);
+
                 Instantiate(part.GameObject, _handsAnchor.transform);
                 Hands = hands;
             }
