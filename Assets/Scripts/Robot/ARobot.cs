@@ -52,6 +52,9 @@ namespace Gmtk.Robot
         protected virtual void ToggleInteract(bool value)
         { }
 
+        protected virtual void OnPartUpdate(APartInfo part)
+        { }
+
         public void AddPart(APartInfo part)
         {
             if (part is CPUInfo cpu)
@@ -80,6 +83,8 @@ namespace Gmtk.Robot
                 Instantiate(part.GameObject, _handsAnchor.transform);
                 Hands = hands;
             }
+
+            OnPartUpdate(part);
         }
 
         public bool TryCarry(ConstructionPart part)

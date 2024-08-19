@@ -7,5 +7,6 @@ namespace Gmtk.SO
     public class WheelInfo : APartInfo
     {
         public float Speed;
+        public bool CanDriveEverywhere;
     }
 }

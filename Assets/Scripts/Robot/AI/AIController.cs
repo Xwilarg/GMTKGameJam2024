@@ -1,4 +1,6 @@
 ﻿using Gmtk.Manager;
+using Gmtk.SO;
+using Gmtk.SO.Part;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
@@ -54,6 +56,15 @@ namespace Gmtk.Robot.AI
 #if UNITY_EDITOR
             _debugText.text += $"\nInteraction: {(_interactionTarget?.CanInteract)?.ToString() ?? "null"}";
 #endif
+        }
+
+        protected override void OnPartUpdate(APartInfo part)
+        {
+            if (part is WheelInfo wheels)
+            {
+                _agent.speed *= wheels.Speed;
+                _agent.agentTypeID = AIManager.Instance.SurfaceIds[wheels.CanDriveEverywhere ? 1 : 0];
+            }
         }
 
         public void SetTarget()

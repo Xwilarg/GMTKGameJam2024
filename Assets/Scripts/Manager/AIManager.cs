@@ -3,6 +3,7 @@ using Gmtk.Robot.AI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Gmtk.Manager
@@ -14,6 +15,12 @@ namespace Gmtk.Manager
 
         [SerializeField]
         private Transform _gameEndPos;
+
+        [SerializeField]
+        private NavMeshSurface[] _surfaces;
+
+        public int[] SurfaceIds => _surfaces.Select(x => x.agentTypeID).ToArray();
+
         public Vector3 GameEndPos => _gameEndPos.position;
 
         private Dictionary<TargetColor, List<Dispenser>> _colorTargets = new();

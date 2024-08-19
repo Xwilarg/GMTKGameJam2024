@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 638396c3cc3889c46a70f98ebe208723, type: 3}
-  m_Name: SampleWheels
+  m_Name: Wheels_all
   m_EditorClassIdentifier: 
-  Name: Sample Wheels
-  GameObject: {fileID: 919132149155446097, guid: b79d63ac3a166034b9c1929f93a8db35, type: 3}
-  Speed: 1
+  Name: Threads
+  Description: Slow but can go on all surfaces
+  Icon: {fileID: 0}
+  GameObject: {fileID: 919132149155446097, guid: a7f2d2ac7a12b1b4988fbe727e489946, type: 3}
+  Speed: 0.75
+  CanDriveEverywhere: 1
