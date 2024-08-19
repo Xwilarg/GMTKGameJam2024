@@ -34,7 +34,14 @@ namespace Gmtk.Manager
             _state = GameState.Playing;
             _timer = TimerRef;
             _blastDoor.SetTrigger("Close");
-            VNManager.Instance.NextMission();
+            if (AIManager.Instance.DidWonObjective)
+            {
+                VNManager.Instance.NextMission();
+            }
+            else
+            {
+                //TODO: GameOver
+            }
         }
 
         public void StartIntro()

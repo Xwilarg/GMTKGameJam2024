@@ -1,5 +1,6 @@
 ﻿using Gmtk.Map;
 using Gmtk.Robot.AI;
+using Gmtk.VN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace Gmtk.Manager
         private List<AIController> _ais = new();
 
         private int RobotCount;
+        public bool DidWonObjective { private set; get; }
 
         private void Awake()
         {
@@ -56,9 +58,19 @@ namespace Gmtk.Manager
         public int BuiltCatCount => _ais.Count(x => !x.IsBeingConstructed && x.CPU.AI == AIBehavior.Cat);
         public int BuiltBuilderCount => _ais.Count(x => !x.IsBeingConstructed && (x.CPU.AI == AIBehavior.GrabRedStation || x.CPU.AI == AIBehavior.GrabGreenStation || x.CPU.AI == AIBehavior.GrabBlueStation));
 
+        private bool CheckObjective()
+        {
+            if (true) // Cat
+            {
+                return BuiltCatCount >= VNManager.Instance.Objective;
+            }
+            return true;
+        }
+
         public void EndRound()
         {
             RobotCount = BuiltAiCount;
+            DidWonObjective = VNManager.Instance.Progress == TutorialProgress.Game ? CheckObjective() : true;
             foreach (var ai in _ais)
             {
                 ai.SetTarget();

@@ -1,5 +1,6 @@
 ﻿using Ink.Runtime;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -26,6 +27,14 @@ namespace Gmtk.VN
 
         public TutorialProgress Progress { set; get; }
 
+        private Dictionary<string, string[]> scenarios = new()
+        {
+            { "mayor", new[] { "host_event" } },
+            { "fire_chief", new[] { "forest_fire", "zoo_escape" } },
+            { "mafia", new[] { "turf_war", "wedding" } },
+            { "rancher", new[] { "lost", "fence" } }
+        };
+
         public void NextMission()
         {
             if (Progress == TutorialProgress.SingleBot)
@@ -49,7 +58,7 @@ namespace Gmtk.VN
             }
             else
             {
-                _story.ChoosePathString("customer.commission");
+                _story.ChoosePathString("customer.kitty");
             }
             IsShowingIntro = true;
         }
