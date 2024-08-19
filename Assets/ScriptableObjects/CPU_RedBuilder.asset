@@ -15,5 +15,8 @@ MonoBehaviour:
   Name: CPU Red Builder
   Description: AI will go back and forth between construction site and closest red
     factory
+  Icon: {fileID: 21300000, guid: c1b830b070c73294f9e387e3f701392c, type: 3}
   GameObject: {fileID: 919132149155446097, guid: e20aaee632a8bc14b9d62af8610ed3d4, type: 3}
+  UnlockOn: 1
   AI: 0
+  OptionalClothes: {fileID: 0}

@@ -15,6 +15,9 @@ namespace Gmtk.VN
         [SerializeField]
         private TextDisplay _display;
 
+        [SerializeField]
+        private GameObject _area1Built, _area2Built, _area1Old, _area2Old;
+
         private Story _story;
 
         private bool _isWaitingForNext;
@@ -25,6 +28,17 @@ namespace Gmtk.VN
 
         public void NextMission()
         {
+            if (Progress == TutorialProgress.SingleBot)
+            {
+                _area1Built.SetActive(true);
+                _area1Old.SetActive(false);
+            }
+            else if (Progress == TutorialProgress.MultiBots)
+            {
+                _area2Built.SetActive(true);
+                _area2Old.SetActive(false);
+            }
+
             if (Progress != TutorialProgress.Game)
             {
                 Progress++;
@@ -43,6 +57,11 @@ namespace Gmtk.VN
         private void Awake()
         {
             Instance = this;
+
+            _area1Built.SetActive(false);
+            _area2Built.SetActive(false);
+            _area1Old.SetActive(true);
+            _area2Old.SetActive(true);
         }
 
         public void StartTutorial()

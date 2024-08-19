@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Gmtk.VN;
+using UnityEngine;
 
 namespace Gmtk.SO.Part
 {
@@ -9,5 +10,6 @@ namespace Gmtk.SO.Part
         public string Description;
         public Sprite Icon;
         public GameObject GameObject;
+        public TutorialProgress UnlockOn;
     }
 }

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: CPU Cat
   Description: Appreciate petting, will go sleep somewhere randomly
+  Icon: {fileID: 21300000, guid: 7951de382f20cf7468938a3b03c2e8f5, type: 3}
   GameObject: {fileID: 919132149155446097, guid: f233d5cf3d82505438bad8d490079211, type: 3}
+  UnlockOn: 0
   AI: 4
   OptionalClothes: {fileID: 0}

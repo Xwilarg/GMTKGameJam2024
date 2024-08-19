@@ -1,4 +1,6 @@
 ﻿using Gmtk.SO.Part;
+using Gmtk.VN;
+using System.Linq;
 using UnityEngine;
 
 namespace Gmtk.Manager
@@ -13,7 +15,7 @@ namespace Gmtk.Manager
         [SerializeField]
         private APartInfo[] _allAvailableParts;
 
-        public APartInfo[] AllAvailableParts => _allAvailableParts;
+        public APartInfo[] AllAvailableParts => _allAvailableParts.Where(x => VNManager.Instance.Progress >= x.UnlockOn).ToArray();
 
         private void Awake()
         {

@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Wheels
   Description: Fast but can't go everywhere
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 2d46564e2c55fd94eaa4bf0407e632e9, type: 3}
   GameObject: {fileID: 919132149155446097, guid: b79d63ac3a166034b9c1929f93a8db35, type: 3}
+  UnlockOn: 0
   Speed: 1
+  CanDriveEverywhere: 0

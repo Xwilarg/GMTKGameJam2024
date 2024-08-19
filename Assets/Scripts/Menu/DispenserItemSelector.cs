@@ -4,6 +4,7 @@ using Gmtk.SO.Part;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gmtk.Menu
 {
@@ -16,7 +17,10 @@ namespace Gmtk.Menu
         private APartInfo[] _parts;
 
         [SerializeField]
-        private TMP_Text _name;
+        private TMP_Text _name, _description;
+
+        [SerializeField]
+        private Image _icon;
 
         public void Init(Dispenser dispenser)
         {
@@ -43,6 +47,8 @@ namespace Gmtk.Menu
         private void UpdateUI()
         {
             _name.text = _parts[_index].Name;
+            _description.text = _parts[_index].Description;
+            _icon.sprite = _parts[_index].Icon;
         }
 
         public void OnConfirm()
