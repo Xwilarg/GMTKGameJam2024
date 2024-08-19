@@ -7,54 +7,64 @@ Writing needs: Dialogue
 
 // Customers
 VAR bot_number = 0
+LIST bot_type = (builder), (cook), (firefighter), (cat), (cowboy), (fixer), (warrior)
 
 -> mayor.game_intro
 == mayor ==
 = game_intro
 ~ bot_number = 1
+~ bot_type = (cat)
 Congratulations on your new shop! As mayor, I'm always eager to support small businesses in this town! # speaker mayor
 Speaking of support, I need your help. # speaker mayor
-City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your cats to take care of the situation? # speaker mayor
+City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your {bot_type}{bot_number>1:s|} to take care of the situation? # speaker mayor
 -> DONE
 
 = host_event
-~ bot_number = RANDOM(1, 20)
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (cook)
 Hello, your shop seems to be doing well! My office pushed for those tax incentives in the last election - we're big on helping businesses! # speaker mayor
 Anyway, we're hosting a delegation from our sister city this week and our regular caterers are overbooked. Do you have a team of {bot_number} that can prepare {~Greek food|brown bag lunches|pizzas|BBQ ribs|sandwiches}?
 -> DONE
 
 == fire_chief ==
 = forest_fire
-~ bot_number = RANDOM(1, 20)
-The forest fire is out of control and heading towards town. My people need all the help they can get. Give me {bot_number} of your best firefighters! # speaker fire_chief
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (firefighter)
+The forest fire is out of control and heading towards town. My people need all the help they can get. Give me {bot_number} of your best {bot_type}{bot_number>1:s|}! # speaker fire_chief
 -> DONE
 
 = zoo_escape
-~ bot_number = RANDOM(1, 20)
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (firefighter, cowboy)
 You haven't seen a tapir around, have you?! It's black and white, with a snout like an anteater. # speaker fire_chief
 A fire broke out in the zoo, and half the animals escaped! I need help, {bot_number} of your best! # speaker fire_chief
 -> DONE
 
 == mafia ==
 = turf_war
-~ bot_number = RANDOM(1, 20)
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (warrior)
 New business eh, bro? You should meet my boss Don Fusilli. You'll need his help one day. # speaker mafia
-Don Fusilli takes care of his own. Question is, will you step up for the Don? The {~Ziti|Rigatoni|Gemelli|Farfalle|Cavatappi} are trying to steal our territory and Don Fusilli needs {bot_number} fighters. # speaker mafia
+Don Fusilli takes care of his own. Question is, will you step up for the Don? The {~Ziti|Rigatoni|Gemelli|Farfalle|Cavatappi} are trying to steal our territory and Don Fusilli needs {bot_number} {bot_type}{bot_number>1:s|}. # speaker mafia
 -> DONE
 
 = wedding
-~ bot_number = RANDOM(1, 20)
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (cook, warrior)
 Bro, it's Don Fusilli's daughter Margherita's wedding next week. You should come by, you know, pay your respects and all. # speaker mafia
-The Don also wants to send business your way. Send {bot_number} of your guys to help with the wedding.
+The Don also wants to send business your way. Send {bot_number} of your guys to guard or help with the wedding.
 -> DONE
 
 == rancher ==
 = lost
-~ bot_number = RANDOM(1, 20)
-S'up amigo? Some of our cattle escaped and I sure could use some help tracking 'em down. You got {bot_number} cowboys 'round these parts? # speaker rancher
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (cowboy)
+S'up amigo? Some of our cattle escaped and I sure could use some help tracking 'em down. You got {bot_number} {bot_type}{bot_number>1:s|} 'round these parts? # speaker rancher
 -> DONE
 
 = fence
+~ bot_number = RANDOM(3, 20)
+~ bot_type = (fixer, cook)
 Hola, amigo! A few other ranch hands offered to help fix our fences. We probably need more help though, 'specially since we promised to feed them. # speaker rancher
 Could use {bot_number} of yours on the day of! # speaker rancher
 -> DONE
@@ -62,14 +72,13 @@ Could use {bot_number} of yours on the day of! # speaker rancher
 // Bots
 VAR build_success = true
 VAR found_job = 1
-LIST bot_tasks = cooking, cowboy, kitty, firefighting, battling, repair
-VAR task = repair
 
 == guyd_bot ==
 = tutorial
-~ bot_number = RANDOM(1, 20)
+~ bot_number = RANDOM(10, 15)
+~ bot_type = (builder)
 Nicely done! That's why you're the boss, boss! # speaker guyd
-A smart boss also knows how to delegate, wink, wink. Go ahead and make {bot_number} builders - they'll help you build even more bots! # speaker guyd
+A smart boss also knows how to delegate, wink, wink. Go ahead and make {bot_number} {bot_type}{bot_number>1:s|} - they'll help you build even more bots! # speaker guyd
 -> DONE
 
 = order_completed
@@ -84,34 +93,11 @@ Someone doesn't belong on this team... # speaker guyd
 There aren't enough of you for this job. Or maybe there are too many of you? I can't decide... # speaker guyd
 -> DONE
 
-= scan_jobs
+= report_task
 Hmm, wonder what's going on in town? # speaker guyd
 ~ found_job = RANDOM(0, 1)
-{
-  - found_job == 1: -> new_task
-  - else: -> no_task
-}
-
-= new_task
-~ task = LIST_RANDOM(bot_tasks)
-{
-  - task == "cowboy": -> cowboy_task
-  - task == "kitty": -> kitty_task
-  - else: -> report_task
-}
-
-= cowboy_task
-~ bot_number = RANDOM(1, 20)
-Hey, let's send {bot_number} {bot_number>1:cowboys|cowboy} to the ranch. Looks like their cattle got loose again. # speaker guyd
--> DONE
-
-= kitty_task
-~ bot_number = RANDOM(1, 20)
-Snakes alive! We need {bot_number} {bot_number>1:cats|cat} at that house before anyone gets attacked. # speaker guyd
--> DONE
-
-= report_task
-Oh, someone needs a {task} job done! Let's get on it, {bot_number} {bot_number>1:bots|bot} coming right up! # speaker guyd
+~ bot_number = RANDOM(3, 20)
+Oh, someone needs {bot_number} {LIST_RANDOM(bot_type)}{bot_number>1:s|}! Let's get on it, {bot_number} {bot_number>1:bots|bot} coming right up! # speaker guyd
 -> DONE
 
 = no_task
