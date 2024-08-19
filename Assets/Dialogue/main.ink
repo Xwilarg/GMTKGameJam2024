@@ -72,6 +72,18 @@ Nicely done! That's why you're the boss, boss! # speaker guyd
 A smart boss also knows how to delegate, wink, wink. Go ahead and make {bot_number} builders - they'll help you build even more bots! # speaker guyd
 -> DONE
 
+= order_completed
+Bot team complete and ready to roll! # speaker guyd
+-> DONE
+
+= wrong_bots
+Someone doesn't belong on this team... # speaker guyd
+-> DONE
+
+= wrong_number
+There aren't enough of you for this job. Or maybe there are too many of you? I can't decide... # speaker guyd
+-> DONE
+
 = scan_jobs
 Hmm, wonder what's going on in town? # speaker guyd
 ~ found_job = RANDOM(0, 1)
@@ -202,7 +214,4 @@ I'll grab my {~hammer|wrench|screwdriver}. This'll take no time at all!
 
 = broken
 I might have a screw or two loose, but who doesn't, right am I?
--> DONE
-
-== orders ==
 -> DONE
