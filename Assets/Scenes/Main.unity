@@ -395,9 +395,10 @@ MonoBehaviour:
   _allAvailableParts:
   - {fileID: 11400000, guid: ca50a1cc28cf0dd4ba66a83a01c74141, type: 2}
   - {fileID: 11400000, guid: 84eaf26f344b8284a9be963fa4c2c30b, type: 2}
-  - {fileID: 11400000, guid: 9c43ca3e2db820f4980a4dee530a6f20, type: 2}
+  - {fileID: 11400000, guid: 65c848cef9c687f499d7af8871b37e7a, type: 2}
   - {fileID: 11400000, guid: 7e4c60f7b2fac6e448034a9a9d3ce441, type: 2}
   - {fileID: 11400000, guid: 8d43abd92e3ed5646bd6828613c01797, type: 2}
+  - {fileID: 11400000, guid: 9c43ca3e2db820f4980a4dee530a6f20, type: 2}
 --- !u!114 &33102357
 MonoBehaviour:
   m_ObjectHideFlags: 0

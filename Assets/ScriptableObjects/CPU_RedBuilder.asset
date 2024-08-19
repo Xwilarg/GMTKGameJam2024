@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7758e6a4f8009a44a415b8af1e10cd5, type: 3}
-  m_Name: CPU_RedBuiilder
+  m_Name: CPU_RedBuilder
   m_EditorClassIdentifier: 
   Name: CPU Red Builder
   Description: AI will go back and forth between construction site and closest red

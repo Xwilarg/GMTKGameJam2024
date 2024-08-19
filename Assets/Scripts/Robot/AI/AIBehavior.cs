@@ -5,6 +5,7 @@
         GrabRedStation,
         GrabGreenStation,
         GrabBlueStation,
-        Player
+        Player,
+        Cat
     }
 }

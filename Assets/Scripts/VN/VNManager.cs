@@ -31,7 +31,7 @@ namespace Gmtk.VN
             }
             if (Progress == TutorialProgress.MultiBots)
             {
-                _story.ChoosePathString("mayor.host_event");
+                _story.ChoosePathString("guyd_bot.tutorial");
             }
             IsShowingIntro = true;
         }
