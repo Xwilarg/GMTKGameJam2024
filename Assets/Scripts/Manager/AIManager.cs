@@ -60,7 +60,7 @@ namespace Gmtk.Manager
 
         public int BuiltAiCount => _ais.Count(x => !x.IsBeingConstructed);
         public int BuiltCatCount => _ais.Count(x => !x.IsBeingConstructed && x.Hands.TargetJob == Job.Cat);
-        public int BuiltBuilderCount => _ais.Count(x => !x.IsBeingConstructed && (x.CPU.AI == AIBehavior.GrabRedStation || x.CPU.AI == AIBehavior.GrabGreenStation || x.CPU.AI == AIBehavior.GrabBlueStation));
+        public int BuiltBuilderCount => _ais.Count(x => !x.IsBeingConstructed && x.Hands.TargetJob == Job.Builder);
 
         private bool CheckObjective()
         {
