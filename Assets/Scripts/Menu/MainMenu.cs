@@ -8,6 +8,10 @@ namespace Gmtk.Menu
         public void Play()
         {
             SceneManager.LoadScene("Main");
+
+            //Sound//
+
+            FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/sfx_ui_click");
         }
     }
 }
