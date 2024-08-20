@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wheels_all
   m_EditorClassIdentifier: 
   Name: Threads
-  Description: Slow but can go on all surfaces
+  Description: Slow, all-terrain wheels.
   Icon: {fileID: 21300000, guid: 0e551be086ec82c489d75108e2407434, type: 3}
   GameObject: {fileID: 919132149155446097, guid: a7f2d2ac7a12b1b4988fbe727e489946, type: 3}
   UnlockOn: 1

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: CPU_P1
   m_EditorClassIdentifier: 
   Name: CPU Advanced AI
-  Description: Only for the best kind of robots
+  Description: Advanced module for the best robots.
+  Icon: {fileID: 0}
   GameObject: {fileID: 919132149155446097, guid: a9b336519008b7d449298bd28d76640f, type: 3}
+  UnlockOn: 0
   AI: 3
   OptionalClothes: {fileID: 919132149155446097, guid: a7d298cd815561e4f9a8624b81d41586, type: 3}
