@@ -66,6 +66,10 @@ namespace Gmtk.Manager
         {
             _progressText.gameObject.SetActive(true);
             _progressText.text = $"{ProcessCount}/{VNManager.Instance.Objective}";
+            if (CheckObjective())
+            {
+                GameManager.Instance.EndRound();
+            }
         }
 
         public int BuiltAiCount => _ais.Count(x => !x.IsBeingConstructed);

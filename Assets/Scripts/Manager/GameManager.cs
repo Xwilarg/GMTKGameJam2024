@@ -67,7 +67,7 @@ namespace Gmtk.Manager
             _timerText.text = "Follow the tutorial";
         }
 
-        private void EndRound()
+        public void EndRound()
         {
             _state = GameState.RoundEnd;
             _blastDoor.SetTrigger("Open");
