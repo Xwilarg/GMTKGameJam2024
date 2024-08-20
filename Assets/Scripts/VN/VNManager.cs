@@ -117,16 +117,7 @@ namespace Gmtk.VN
         }
 
         public int Objective => (int)_story.variablesState["bot_number"];
-        public string[] PossibleBots = null;
-       /* {
-            get
-            {
-                foreach (var e in (ListValue)_story.variablesState["bot_type"])
-                {
-
-                }
-            }
-        }*/
+        public string[] PossibleBots => ((string)_story.variablesState["bot_type"]).Split(',').Select(x => x.Trim()).ToArray();
 
         private IEnumerator WaitAndForceDisplay()
         {

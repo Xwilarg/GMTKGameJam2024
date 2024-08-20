@@ -1,5 +1,4 @@
-﻿using Gmtk.Manager;
-using Gmtk.VN;
+﻿using Gmtk.VN;
 using TMPro;
 using UnityEngine;
 
@@ -27,6 +26,11 @@ namespace Gmtk.Manager
             Instance = this;
             _timer = TimerRef;
             _timerText.text = "Press any key to start";
+        }
+
+        private void Start()
+        {
+            BGMManager.Instance?.UpdateBGM();
         }
 
         public void StartNextRound()
