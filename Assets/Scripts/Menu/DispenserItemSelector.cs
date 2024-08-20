@@ -1,5 +1,6 @@
 using Gmtk.Manager;
 using Gmtk.Map;
+using Gmtk.SO;
 using Gmtk.SO.Part;
 using System.Linq;
 using TMPro;
@@ -26,7 +27,14 @@ namespace Gmtk.Menu
         {
             _target = dispenser;
             _index = 0;
-            _parts = ResourcesManager.Instance.AllAvailableParts.OrderBy(x => x.Name).ToArray();
+            _parts = ResourcesManager.Instance.AllAvailableParts.OrderBy(x =>
+            {
+                string cmp;
+                if (x is CPUInfo) cmp = "1_";
+                else if (x is WheelInfo) cmp = "2_";
+                else cmp = "3_";
+                return cmp + x.Name;
+            }).ToArray();
             UpdateUI();
         }
 
