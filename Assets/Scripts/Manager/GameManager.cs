@@ -15,7 +15,7 @@ namespace Gmtk.Manager
         private TMP_Text _timerText;
 
         private float _timer;
-        private const float TimerRef = 120f;
+        private float TimerRef = 120f;
 
         private GameState _state = GameState.Playing;
 
@@ -45,6 +45,7 @@ namespace Gmtk.Manager
 
         public void StartNextRound()
         {
+            TimerRef = VNManager.Instance.Objective * 60f;
             _state = GameState.Playing;
             _timer = TimerRef;
             _blastDoor.SetTrigger("Close");
@@ -57,6 +58,7 @@ namespace Gmtk.Manager
             else
             {
                 GameOver();
+                VNManager.Instance.DisplayGameover();
             }
         }
 

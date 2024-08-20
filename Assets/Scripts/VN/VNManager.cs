@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Gmtk.VN
 {
@@ -18,6 +19,12 @@ namespace Gmtk.VN
 
         [SerializeField]
         private GameObject _area1Built, _area2Built, _area1Old, _area2Old;
+
+        [SerializeField]
+        private Image _speaker;
+
+        [SerializeField]
+        private Sprite _mayor, _fireChief, _mafia, _rancher, _guyd;
 
         private Story _story;
 
@@ -79,6 +86,11 @@ namespace Gmtk.VN
             IsShowingIntro = true;
         }
 
+        public void DisplayGameover()
+        {
+            _story.ChoosePathString("guyd_bot.try_again");
+        }
+
         private void Awake()
         {
             Instance = this;
@@ -97,6 +109,7 @@ namespace Gmtk.VN
 
         private void DisplayStory(string text)
         {
+            _speaker.gameObject.SetActive(false);
             foreach (var tag in _story.currentTags)
             {
                 var s = tag.Split(' ');
@@ -104,7 +117,16 @@ namespace Gmtk.VN
                 switch (s[0])
                 {
                     case "speaker":
-                        // TODO
+                        _speaker.gameObject.SetActive(true);
+                        _speaker.sprite = content switch
+                        {
+                            "mayor" => _mayor,
+                            "fire_chief" => _fireChief,
+                            "mafia" => _mafia,
+                            "rancher" => _rancher,
+                            "guyd" => _guyd,
+                            _ => throw new System.NotImplementedException($"Unknown speaker {content}")
+                        };
                         break;
                 }
             }
