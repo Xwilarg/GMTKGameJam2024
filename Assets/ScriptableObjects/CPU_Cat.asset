@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7758e6a4f8009a44a415b8af1e10cd5, type: 3}
   m_Name: CPU_Cat
   m_EditorClassIdentifier: 
-  Name: CPU Cat
-  Description: Will go lay around at a random place until further orders
-  Icon: {fileID: 21300000, guid: 7951de382f20cf7468938a3b03c2e8f5, type: 3}
+  Name: CPU Wait
+  Description: Will move around at a random place until further orders
+  Icon: {fileID: 21300000, guid: 48582ff7a80ab0945b9820d50eb90e69, type: 3}
   GameObject: {fileID: 919132149155446097, guid: f233d5cf3d82505438bad8d490079211, type: 3}
   UnlockOn: 0
   AI: 4
