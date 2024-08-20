@@ -13,6 +13,9 @@ namespace Gmtk.Manager
         [SerializeField]
         private CPUInfo[] _cpus;
 
+        [SerializeField]
+        private GameObject _startText;
+
         private int _index;
 
         public bool HasJoin => _index > 0;
@@ -30,6 +33,7 @@ namespace Gmtk.Manager
             {
                 VNManager.Instance.StartTutorial();
                 GameManager.Instance.StartIntro();
+                _startText.SetActive(false);
             }
 
             _index++;
