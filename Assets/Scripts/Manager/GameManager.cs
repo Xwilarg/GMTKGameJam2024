@@ -21,6 +21,8 @@ namespace Gmtk.Manager
 
         public bool DidRoundEnd => _state != GameState.Playing;
 
+        private int _timeIt;
+
         //Sound//
 
         private FMOD.Studio.EventInstance timeEnding;
@@ -45,7 +47,9 @@ namespace Gmtk.Manager
 
         public void StartNextRound()
         {
-            TimerRef = VNManager.Instance.Objective * 60f;
+            var help = (60f - ((_timeIt - 2) * 10f));
+            if (help <= 0f) help = 10f;
+            TimerRef = VNManager.Instance.Objective * help;
             _state = GameState.Playing;
             _timer = TimerRef;
             _blastDoor.SetTrigger("Close");
@@ -73,6 +77,8 @@ namespace Gmtk.Manager
             _blastDoor.SetTrigger("Open");
             AIManager.Instance.EndRound();
 
+            _timeIt++;
+
             //Sound//
 
             FMODUnity.RuntimeManager.PlayOneShot("event:/SFX/doors_open");
@@ -81,7 +87,7 @@ namespace Gmtk.Manager
         private void Update()
         {
             //Sound//
-            if (_timer <=10f)
+            if (_timer <= 10f)
             {
                 timeEnding.start();
             }
