@@ -72,6 +72,10 @@ namespace Gmtk.Manager
         public void EndRound()
         {
             RobotCount = BuiltAiCount;
+            if (RobotCount == 0)
+            {
+                GameManager.Instance.StartNextRound();
+            }
             DidWonObjective = VNManager.Instance.Progress == TutorialProgress.Game ? CheckObjective() : true;
             foreach (var ai in _ais)
             {

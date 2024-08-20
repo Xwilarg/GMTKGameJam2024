@@ -15,7 +15,7 @@ namespace Gmtk.Manager
         private TMP_Text _timerText;
 
         private float _timer;
-        private const float TimerRef = 20f;
+        private const float TimerRef = 120f;
 
         private GameState _state = GameState.Playing;
 
