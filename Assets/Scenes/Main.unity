@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 2
-  m_MaxPlayerCount: 4
+  m_MaxPlayerCount: 2
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
@@ -562,8 +562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cpus:
   - {fileID: 11400000, guid: 01e2bff8aaf8b3940a3e87063e467855, type: 2}
-  - {fileID: 11400000, guid: cc840f9a53bf74548a530e8d8e90b082, type: 2}
   - {fileID: 11400000, guid: 367b9ec1e43c55d428fc50edddb994b6, type: 2}
+  - {fileID: 11400000, guid: cc840f9a53bf74548a530e8d8e90b082, type: 2}
   - {fileID: 11400000, guid: d1425d3d95a7d1a438730a18737ccd1e, type: 2}
   _startText: {fileID: 469582627}
 --- !u!114 &33102359
