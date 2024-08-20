@@ -64,7 +64,7 @@ namespace Gmtk.Manager
 
         public void StartIntro()
         {
-            _timerText.text = "Listen to the mayor!";
+            _timerText.text = "Follow the tutorial";
         }
 
         private void EndRound()
