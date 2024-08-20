@@ -57,6 +57,8 @@ namespace Gmtk.VN
         };
         public Job GetJob(string key) => _jobs[key];
 
+        private bool _instr = true;
+
         public void NextMission()
         {
             if (Progress == TutorialProgress.SingleBot)
@@ -172,6 +174,11 @@ namespace Gmtk.VN
             {
                 IsShowingIntro = false;
                 AIManager.Instance.UpdateProgress();
+                if (_instr)
+                {
+                    _instr = false;
+                    GameManager.Instance.StartGame();
+                }
             }
             _isWaitingForNext = false;
         }

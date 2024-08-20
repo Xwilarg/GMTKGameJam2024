@@ -107,6 +107,14 @@ namespace Gmtk.Robot.Player
             }
         }
 
+        public void OnQuit(InputAction.CallbackContext value)
+        {
+            if (value.phase == InputActionPhase.Started)
+            {
+                Application.Quit();
+            }
+        }
+
         protected override void ToggleInteract(bool value)
         {
             _interactionText.SetActive(value);

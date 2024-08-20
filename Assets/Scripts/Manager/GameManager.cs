@@ -68,7 +68,12 @@ namespace Gmtk.Manager
 
         public void StartIntro()
         {
-            _timerText.text = "Follow the tutorial";
+            _timerText.text = "Listen to the dialogues";
+        }
+
+        public void StartGame()
+        {
+            _timerText.text = "Interact with the screen to build robots (arrows/stick to change items)";
         }
 
         public void EndRound()
