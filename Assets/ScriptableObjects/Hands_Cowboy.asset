@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40f6559b455b8e144a52df965e6a55bf, type: 3}
-  m_Name: Hands_builder
+  m_Name: Hands_Cowboy
   m_EditorClassIdentifier: 
-  Name: Worker hands
-  Description: 'Enables interaction with the environment.
-
-    Also allow builder
-    jobs.'
-  Icon: {fileID: 21300000, guid: d750f1dea02e1de4eae4b0dde95590e6, type: 3}
-  GameObject: {fileID: 919132149155446097, guid: 3c480005a6adb5f43a81920babe719bb, type: 3}
-  UnlockOn: 0
-  CanGrab: 1
-  TargetJob: 0
+  Name: Cowboy hands
+  Description: Allow cowboy jobs.
+  Icon: {fileID: 21300000, guid: 4ce873df5d4278a45b4fa151318942e4, type: 3}
+  GameObject: {fileID: 919132149155446097, guid: 8a8790393d1cfe344ae34584a2c3c4bd, type: 3}
+  UnlockOn: 2
+  CanGrab: 0
+  TargetJob: 4

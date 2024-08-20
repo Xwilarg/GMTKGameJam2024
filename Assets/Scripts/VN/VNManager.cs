@@ -37,6 +37,18 @@ namespace Gmtk.VN
             { "rancher", new[] { "lost", "fence" } }
         };
 
+        private Dictionary<string, Job> _jobs = new()
+        {
+            { "builder", Job.Builder },
+            { "cook", Job.Cook },
+            { "firefighter", Job.Firefighter },
+            { "cat", Job.Cat },
+            { "cowboy", Job.Cowboy },
+            { "fixer", Job.Fixer },
+            { "warrior", Job.Warrior }
+        };
+        public Job GetJob(string key) => _jobs[key];
+
         public void NextMission()
         {
             if (Progress == TutorialProgress.SingleBot)
@@ -146,5 +158,16 @@ namespace Gmtk.VN
         SingleBot,
         MultiBots,
         Game
+    }
+
+    public enum Job
+    {
+        Builder,
+        Cook,
+        Firefighter,
+        Cat,
+        Cowboy,
+        Fixer,
+        Warrior
     }
 }

@@ -59,17 +59,14 @@ namespace Gmtk.Manager
         }
 
         public int BuiltAiCount => _ais.Count(x => !x.IsBeingConstructed);
-        public int BuiltCatCount => _ais.Count(x => !x.IsBeingConstructed && x.CPU.AI == AIBehavior.Cat);
+        public int BuiltCatCount => _ais.Count(x => !x.IsBeingConstructed && x.Hands.TargetJob == Job.Cat);
         public int BuiltBuilderCount => _ais.Count(x => !x.IsBeingConstructed && (x.CPU.AI == AIBehavior.GrabRedStation || x.CPU.AI == AIBehavior.GrabGreenStation || x.CPU.AI == AIBehavior.GrabBlueStation));
 
         private bool CheckObjective()
         {
             Debug.Log($"Objective requires {VNManager.Instance.Objective} of {string.Join(", ", VNManager.Instance.PossibleBots)}");
-            if (true) // Cat
-            {
-                return BuiltCatCount >= VNManager.Instance.Objective;
-            }
-            return true;
+
+            return _ais.Count(x => !x.IsBeingConstructed && VNManager.Instance.PossibleBots.Select(y => VNManager.Instance.GetJob(y)).Contains(x.Hands.TargetJob)) >= VNManager.Instance.Objective;
         }
 
         public void EndRound()

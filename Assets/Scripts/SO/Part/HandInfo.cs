@@ -1,4 +1,5 @@
 ﻿using Gmtk.SO.Part;
+using Gmtk.VN;
 using UnityEngine;
 
 namespace Gmtk.SO
@@ -7,5 +8,6 @@ namespace Gmtk.SO
     public class HandInfo : APartInfo
     {
         public bool CanGrab;
+        public Job TargetJob;
     }
 }
