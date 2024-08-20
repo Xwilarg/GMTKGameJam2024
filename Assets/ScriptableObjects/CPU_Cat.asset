@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: CPU Wait
   Description: Will move around at a random place until further orders
   Icon: {fileID: 21300000, guid: 48582ff7a80ab0945b9820d50eb90e69, type: 3}
-  GameObject: {fileID: 919132149155446097, guid: f233d5cf3d82505438bad8d490079211, type: 3}
+  GameObject: {fileID: 919132149155446097, guid: 58b53ffa58aa1bf4ebd38fa18f19b89a, type: 3}
   UnlockOn: 0
   AI: 4
   OptionalClothes: {fileID: 0}
