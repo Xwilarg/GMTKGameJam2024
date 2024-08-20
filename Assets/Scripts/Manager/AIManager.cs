@@ -4,6 +4,7 @@ using Gmtk.VN;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.AI.Navigation;
 using UnityEngine;
 
@@ -19,6 +20,9 @@ namespace Gmtk.Manager
 
         [SerializeField]
         private NavMeshSurface[] _surfaces;
+
+        [SerializeField]
+        private TMP_Text _progressText;
 
         public int[] SurfaceIds => _surfaces.Select(x => x.agentTypeID).ToArray();
 
@@ -58,15 +62,23 @@ namespace Gmtk.Manager
             }
         }
 
+        public void UpdateProgress()
+        {
+            _progressText.gameObject.SetActive(true);
+            _progressText.text = $"{ProcessCount}/{VNManager.Instance.Objective}";
+        }
+
         public int BuiltAiCount => _ais.Count(x => !x.IsBeingConstructed);
         public int BuiltCatCount => _ais.Count(x => !x.IsBeingConstructed && x.Hands.TargetJob == Job.Cat);
         public int BuiltBuilderCount => _ais.Count(x => !x.IsBeingConstructed && x.Hands.TargetJob == Job.Builder);
+
+        private int ProcessCount => _ais.Count(x => !x.IsBeingConstructed && VNManager.Instance.PossibleBots.Select(y => VNManager.Instance.GetJob(y)).Contains(x.Hands.TargetJob));
 
         private bool CheckObjective()
         {
             Debug.Log($"Objective requires {VNManager.Instance.Objective} of {string.Join(", ", VNManager.Instance.PossibleBots)}");
 
-            return _ais.Count(x => !x.IsBeingConstructed && VNManager.Instance.PossibleBots.Select(y => VNManager.Instance.GetJob(y)).Contains(x.Hands.TargetJob)) >= VNManager.Instance.Objective;
+            return ProcessCount >= VNManager.Instance.Objective;
         }
 
         public void EndRound()

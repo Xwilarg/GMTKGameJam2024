@@ -22,6 +22,7 @@ namespace Gmtk.Robot.AI
 
                 if (!_isBeingConstructed)
                 {
+                    AIManager.Instance.UpdateProgress();
                     SetTarget();
                 }
             }

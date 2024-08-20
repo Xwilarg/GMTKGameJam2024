@@ -1,4 +1,5 @@
-﻿using Ink.Runtime;
+﻿using Gmtk.Manager;
+using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -170,6 +171,7 @@ namespace Gmtk.VN
             else
             {
                 IsShowingIntro = false;
+                AIManager.Instance.UpdateProgress();
             }
             _isWaitingForNext = false;
         }
