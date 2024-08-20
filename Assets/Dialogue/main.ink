@@ -17,7 +17,7 @@ VAR bot_type = "cat"
 ~ bot_type = "cat"
 Congratulations on your new shop! As mayor, I'm always eager to support small businesses in this town! # speaker mayor
 Speaking of support, I need your help. # speaker mayor
-City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your {bot_type}{bot_number>1:s|} to take care of the situation? # speaker mayor
+City Hall is a stinking mess today - turns out a nest of rats has been living in our vents!  Could you send {bot_number} of your {bot_type}s to take care of the situation? # speaker mayor
 -> DONE
 
 = host_event
