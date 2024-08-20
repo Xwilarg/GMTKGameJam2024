@@ -13,6 +13,10 @@ namespace Gmtk.Map
 
         [SerializeField]
         private Transform _spawnPoint;
+
+        [SerializeField]
+        private SpriteRenderer _sr;
+
         public Transform SpawnPoint => _spawnPoint;
 
         [SerializeField]
@@ -36,6 +40,8 @@ namespace Gmtk.Map
             {
                 Destroy(_currentObject.gameObject);
             }
+            _sr.gameObject.SetActive(true);
+            _sr.sprite = part.Icon;
             Spawn();
         }
 
@@ -71,9 +77,6 @@ namespace Gmtk.Map
                 FMODUnity.RuntimeManager.AttachInstanceToGameObject(collectengine, GetComponent<Transform>(), GetComponent<Rigidbody>());
                 collectengine.start();
             }
-
-            
-
         }
     }
 }
