@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: CPU Blue Builder
   Description: Travels between construction site and Blue station.
   Icon: {fileID: 21300000, guid: 5ae92fdd8f4e8954e9c4a854f48af22a, type: 3}
-  GameObject: {fileID: 919132149155446097, guid: e20aaee632a8bc14b9d62af8610ed3d4, type: 3}
+  GameObject: {fileID: 919132149155446097, guid: 3604bbea51ce2924d8851c7a76cb1a57, type: 3}
   UnlockOn: 0
   AI: 2
   OptionalClothes: {fileID: 0}

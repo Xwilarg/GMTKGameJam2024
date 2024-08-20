@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: CPU Green Builder
   Description: Travels between construction site and Green station.
   Icon: {fileID: 21300000, guid: eaa70944f8a1e6f49a5551b911076d24, type: 3}
-  GameObject: {fileID: 919132149155446097, guid: e20aaee632a8bc14b9d62af8610ed3d4, type: 3}
+  GameObject: {fileID: 919132149155446097, guid: 90d80346abc41d94ca022e58ffb21dca, type: 3}
   UnlockOn: 1
   AI: 1
   OptionalClothes: {fileID: 0}
