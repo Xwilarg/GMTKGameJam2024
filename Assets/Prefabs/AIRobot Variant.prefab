@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIRobot Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 769355382561626909, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1bbbe2e3453d14c4b853634422fd8992, type: 2}
     - target: {fileID: 6307805983807987130, guid: 3e4ce73e72ca5f248abd984c3a7a24f6, type: 3}
       propertyPath: m_Layer
       value: 8
