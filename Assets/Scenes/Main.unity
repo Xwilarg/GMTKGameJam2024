@@ -525,6 +525,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d43abd92e3ed5646bd6828613c01797, type: 2}
   - {fileID: 11400000, guid: 9c43ca3e2db820f4980a4dee530a6f20, type: 2}
   - {fileID: 11400000, guid: 25399b3d48edade4c9c9a2bd0fa4adc1, type: 2}
+  - {fileID: 11400000, guid: ee19dbb7ceed67c4b9f04a22a1ed1683, type: 2}
+  - {fileID: 11400000, guid: 7087ea465e3362640a97cdbb5bc194ea, type: 2}
+  - {fileID: 11400000, guid: b2a65ef336bc09246bc7fa48a052ac72, type: 2}
+  - {fileID: 11400000, guid: b1baebeb9a4823148a4cc315e811d018, type: 2}
+  - {fileID: 11400000, guid: e2478679c954c854181e36b119a2ebc6, type: 2}
+  - {fileID: 11400000, guid: f4bc2ee030bd6744db822758391d5a98, type: 2}
 --- !u!114 &33102357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2488,6 +2494,10 @@ PrefabInstance:
     - target: {fileID: 3190945531507316411, guid: 7d78217d6ccc00541abc03c65f633829, type: 3}
       propertyPath: m_Name
       value: BuildArea (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6112555599811415278, guid: 7d78217d6ccc00541abc03c65f633829, type: 3}
+      propertyPath: m_Intensity
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
