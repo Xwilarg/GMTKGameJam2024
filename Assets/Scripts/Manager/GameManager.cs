@@ -37,6 +37,11 @@ namespace Gmtk.Manager
 
         }
 
+        public void GameOver()
+        {
+            _timerText.text = "Game Over";
+        }
+
 
         public void StartNextRound()
         {
@@ -51,7 +56,7 @@ namespace Gmtk.Manager
             }
             else
             {
-                //TODO: GameOver
+                GameOver();
             }
         }
 
